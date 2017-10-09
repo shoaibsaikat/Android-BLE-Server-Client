@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "G:\\Personal\\BLE-Server-Client-AndroidStudio\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_main.xml",
+        "source": "G:\\Personal\\BLE-Server-Client-AndroidStudio\\app\\src\\main\\res\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "G:\\Personal\\BLE-Server-Client-AndroidStudio\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_client.xml",
+        "source": "G:\\Personal\\BLE-Server-Client-AndroidStudio\\app\\src\\main\\res\\layout\\activity_client.xml"
+    },
+    {
+        "merged": "G:\\Personal\\BLE-Server-Client-AndroidStudio\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_server.xml",
+        "source": "G:\\Personal\\BLE-Server-Client-AndroidStudio\\app\\src\\main\\res\\layout\\activity_server.xml"
+    }
+]

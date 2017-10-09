@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">BLE</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="start_text">Start Advertising</string>
+    <string name="stop_text">Stop Advertising</string>
+    <string name="scan_text">Scan for Devices</string>
+    <string name="scan_stop_text">Stop Scanning</string>
+    <string name="action_settings">Settings</string>
+</resources>
