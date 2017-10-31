@@ -1,6 +1,18 @@
 -- Merging decision tree log ---
 manifest
 ADDED from G:\Personal\BLE-Server-Client-AndroidStudio\app\src\main\AndroidManifest.xml:2:1-42:12
+INJECTED from G:\Personal\BLE-Server-Client-AndroidStudio\app\src\main\AndroidManifest.xml:2:1-42:12
+INJECTED from G:\Personal\BLE-Server-Client-AndroidStudio\app\src\main\AndroidManifest.xml:2:1-42:12
+INJECTED from G:\Personal\BLE-Server-Client-AndroidStudio\app\src\main\AndroidManifest.xml:2:1-42:12
+MERGED from [com.android.support:support-v4:26.0.0-alpha1] C:\Users\mirahman\.gradle\caches\transforms-1\files-1.1\support-v4-26.0.0-alpha1.aar\8ee27fe202e50583bfc1780c0019b8ef\AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-media-compat:26.0.0-alpha1] C:\Users\mirahman\.gradle\caches\transforms-1\files-1.1\support-media-compat-26.0.0-alpha1.aar\d1843ad6dc181fec4bc6df5bc165f252\AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-fragment:26.0.0-alpha1] C:\Users\mirahman\.gradle\caches\transforms-1\files-1.1\support-fragment-26.0.0-alpha1.aar\d1962a34ddd495c45f2ba1fc3d6cad45\AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-core-utils:26.0.0-alpha1] C:\Users\mirahman\.gradle\caches\transforms-1\files-1.1\support-core-utils-26.0.0-alpha1.aar\335856415bae6e50d3594e902025c487\AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-core-ui:26.0.0-alpha1] C:\Users\mirahman\.gradle\caches\transforms-1\files-1.1\support-core-ui-26.0.0-alpha1.aar\a00e8f1aa9c4c98d7ee1df627107bb05\AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-compat:26.0.0-alpha1] C:\Users\mirahman\.gradle\caches\transforms-1\files-1.1\support-compat-26.0.0-alpha1.aar\79ff97528c3e6acf4010a11847f87c96\AndroidManifest.xml:17:1-31:12
+INJECTED from G:\Personal\BLE-Server-Client-AndroidStudio\app\src\main\AndroidManifest.xml:2:1-42:12
+INJECTED from G:\Personal\BLE-Server-Client-AndroidStudio\app\src\main\AndroidManifest.xml:2:1-42:12
+INJECTED from G:\Personal\BLE-Server-Client-AndroidStudio\app\src\main\AndroidManifest.xml:2:1-42:12
 	package
 		ADDED from G:\Personal\BLE-Server-Client-AndroidStudio\app\src\main\AndroidManifest.xml:3:5-35
 		INJECTED from G:\Personal\BLE-Server-Client-AndroidStudio\app\src\main\AndroidManifest.xml
@@ -9,22 +21,32 @@ ADDED from G:\Personal\BLE-Server-Client-AndroidStudio\app\src\main\AndroidManif
 		ADDED from G:\Personal\BLE-Server-Client-AndroidStudio\app\src\main\AndroidManifest.xml:5:5-30
 		INJECTED from G:\Personal\BLE-Server-Client-AndroidStudio\app\src\main\AndroidManifest.xml
 		INJECTED from G:\Personal\BLE-Server-Client-AndroidStudio\app\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from G:\Personal\BLE-Server-Client-AndroidStudio\app\src\main\AndroidManifest.xml:2:11-69
 	android:versionCode
 		ADDED from G:\Personal\BLE-Server-Client-AndroidStudio\app\src\main\AndroidManifest.xml:4:5-28
 		INJECTED from G:\Personal\BLE-Server-Client-AndroidStudio\app\src\main\AndroidManifest.xml
 		INJECTED from G:\Personal\BLE-Server-Client-AndroidStudio\app\src\main\AndroidManifest.xml
-	xmlns:android
-		ADDED from G:\Personal\BLE-Server-Client-AndroidStudio\app\src\main\AndroidManifest.xml:2:11-69
 uses-sdk
 ADDED from G:\Personal\BLE-Server-Client-AndroidStudio\app\src\main\AndroidManifest.xml:7:5-9:41
-MERGED from [com.android.support:support-v4:26.0.0-alpha1] C:\Users\mirahman\.android\build-cache\9fbce35157293ead18c744e6baf4a887e6f9ad8e\output\AndroidManifest.xml:21:5-23:54
-MERGED from [com.android.support:support-media-compat:26.0.0-alpha1] C:\Users\mirahman\.android\build-cache\0fbf63c5c2c9f60643b740a6c690545c931e45ce\output\AndroidManifest.xml:21:5-23:63
-MERGED from [com.android.support:support-fragment:26.0.0-alpha1] C:\Users\mirahman\.android\build-cache\de42680668d859a4aff482c53979645367aaf964\output\AndroidManifest.xml:21:5-23:60
-MERGED from [com.android.support:support-core-ui:26.0.0-alpha1] C:\Users\mirahman\.android\build-cache\26a953d7e0a307d10e3401fad749599ff70111f6\output\AndroidManifest.xml:21:5-23:58
-MERGED from [com.android.support:support-core-utils:26.0.0-alpha1] C:\Users\mirahman\.android\build-cache\0baa40ea0b5e977d3a5871666b28cd89db10a97e\output\AndroidManifest.xml:21:5-23:61
-MERGED from [com.android.support:support-compat:26.0.0-alpha1] C:\Users\mirahman\.android\build-cache\b33bfdd8124f5caf1558076a57eecadbc6e77edf\output\AndroidManifest.xml:21:5-23:58
+INJECTED from G:\Personal\BLE-Server-Client-AndroidStudio\app\src\main\AndroidManifest.xml:7:5-9:41
+INJECTED from G:\Personal\BLE-Server-Client-AndroidStudio\app\src\main\AndroidManifest.xml:7:5-9:41
+MERGED from [com.android.support:support-v4:26.0.0-alpha1] C:\Users\mirahman\.gradle\caches\transforms-1\files-1.1\support-v4-26.0.0-alpha1.aar\8ee27fe202e50583bfc1780c0019b8ef\AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-v4:26.0.0-alpha1] C:\Users\mirahman\.gradle\caches\transforms-1\files-1.1\support-v4-26.0.0-alpha1.aar\8ee27fe202e50583bfc1780c0019b8ef\AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-media-compat:26.0.0-alpha1] C:\Users\mirahman\.gradle\caches\transforms-1\files-1.1\support-media-compat-26.0.0-alpha1.aar\d1843ad6dc181fec4bc6df5bc165f252\AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-media-compat:26.0.0-alpha1] C:\Users\mirahman\.gradle\caches\transforms-1\files-1.1\support-media-compat-26.0.0-alpha1.aar\d1843ad6dc181fec4bc6df5bc165f252\AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-fragment:26.0.0-alpha1] C:\Users\mirahman\.gradle\caches\transforms-1\files-1.1\support-fragment-26.0.0-alpha1.aar\d1962a34ddd495c45f2ba1fc3d6cad45\AndroidManifest.xml:21:5-23:60
+MERGED from [com.android.support:support-fragment:26.0.0-alpha1] C:\Users\mirahman\.gradle\caches\transforms-1\files-1.1\support-fragment-26.0.0-alpha1.aar\d1962a34ddd495c45f2ba1fc3d6cad45\AndroidManifest.xml:21:5-23:60
+MERGED from [com.android.support:support-core-utils:26.0.0-alpha1] C:\Users\mirahman\.gradle\caches\transforms-1\files-1.1\support-core-utils-26.0.0-alpha1.aar\335856415bae6e50d3594e902025c487\AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:support-core-utils:26.0.0-alpha1] C:\Users\mirahman\.gradle\caches\transforms-1\files-1.1\support-core-utils-26.0.0-alpha1.aar\335856415bae6e50d3594e902025c487\AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:support-core-ui:26.0.0-alpha1] C:\Users\mirahman\.gradle\caches\transforms-1\files-1.1\support-core-ui-26.0.0-alpha1.aar\a00e8f1aa9c4c98d7ee1df627107bb05\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-core-ui:26.0.0-alpha1] C:\Users\mirahman\.gradle\caches\transforms-1\files-1.1\support-core-ui-26.0.0-alpha1.aar\a00e8f1aa9c4c98d7ee1df627107bb05\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-compat:26.0.0-alpha1] C:\Users\mirahman\.gradle\caches\transforms-1\files-1.1\support-compat-26.0.0-alpha1.aar\79ff97528c3e6acf4010a11847f87c96\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-compat:26.0.0-alpha1] C:\Users\mirahman\.gradle\caches\transforms-1\files-1.1\support-compat-26.0.0-alpha1.aar\79ff97528c3e6acf4010a11847f87c96\AndroidManifest.xml:21:5-23:58
+INJECTED from G:\Personal\BLE-Server-Client-AndroidStudio\app\src\main\AndroidManifest.xml:7:5-9:41
+INJECTED from G:\Personal\BLE-Server-Client-AndroidStudio\app\src\main\AndroidManifest.xml:7:5-9:41
 	tools:overrideLibrary
-		ADDED from [com.android.support:support-v4:26.0.0-alpha1] C:\Users\mirahman\.android\build-cache\9fbce35157293ead18c744e6baf4a887e6f9ad8e\output\AndroidManifest.xml:23:9-51
+		ADDED from [com.android.support:support-v4:26.0.0-alpha1] C:\Users\mirahman\.gradle\caches\transforms-1\files-1.1\support-v4-26.0.0-alpha1.aar\8ee27fe202e50583bfc1780c0019b8ef\AndroidManifest.xml:23:9-51
 	android:targetSdkVersion
 		ADDED from G:\Personal\BLE-Server-Client-AndroidStudio\app\src\main\AndroidManifest.xml:9:9-38
 		INJECTED from G:\Personal\BLE-Server-Client-AndroidStudio\app\src\main\AndroidManifest.xml
@@ -49,18 +71,24 @@ ADDED from G:\Personal\BLE-Server-Client-AndroidStudio\app\src\main\AndroidManif
 		ADDED from G:\Personal\BLE-Server-Client-AndroidStudio\app\src\main\AndroidManifest.xml:14:16-60
 application
 ADDED from G:\Personal\BLE-Server-Client-AndroidStudio\app\src\main\AndroidManifest.xml:16:5-40:19
-MERGED from [com.android.support:support-v4:26.0.0-alpha1] C:\Users\mirahman\.android\build-cache\9fbce35157293ead18c744e6baf4a887e6f9ad8e\output\AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:support-media-compat:26.0.0-alpha1] C:\Users\mirahman\.android\build-cache\0fbf63c5c2c9f60643b740a6c690545c931e45ce\output\AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:support-fragment:26.0.0-alpha1] C:\Users\mirahman\.android\build-cache\de42680668d859a4aff482c53979645367aaf964\output\AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:support-core-ui:26.0.0-alpha1] C:\Users\mirahman\.android\build-cache\26a953d7e0a307d10e3401fad749599ff70111f6\output\AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:support-core-utils:26.0.0-alpha1] C:\Users\mirahman\.android\build-cache\0baa40ea0b5e977d3a5871666b28cd89db10a97e\output\AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:support-compat:26.0.0-alpha1] C:\Users\mirahman\.android\build-cache\b33bfdd8124f5caf1558076a57eecadbc6e77edf\output\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-v4:26.0.0-alpha1] C:\Users\mirahman\.gradle\caches\transforms-1\files-1.1\support-v4-26.0.0-alpha1.aar\8ee27fe202e50583bfc1780c0019b8ef\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-v4:26.0.0-alpha1] C:\Users\mirahman\.gradle\caches\transforms-1\files-1.1\support-v4-26.0.0-alpha1.aar\8ee27fe202e50583bfc1780c0019b8ef\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-media-compat:26.0.0-alpha1] C:\Users\mirahman\.gradle\caches\transforms-1\files-1.1\support-media-compat-26.0.0-alpha1.aar\d1843ad6dc181fec4bc6df5bc165f252\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-media-compat:26.0.0-alpha1] C:\Users\mirahman\.gradle\caches\transforms-1\files-1.1\support-media-compat-26.0.0-alpha1.aar\d1843ad6dc181fec4bc6df5bc165f252\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-fragment:26.0.0-alpha1] C:\Users\mirahman\.gradle\caches\transforms-1\files-1.1\support-fragment-26.0.0-alpha1.aar\d1962a34ddd495c45f2ba1fc3d6cad45\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-fragment:26.0.0-alpha1] C:\Users\mirahman\.gradle\caches\transforms-1\files-1.1\support-fragment-26.0.0-alpha1.aar\d1962a34ddd495c45f2ba1fc3d6cad45\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-core-utils:26.0.0-alpha1] C:\Users\mirahman\.gradle\caches\transforms-1\files-1.1\support-core-utils-26.0.0-alpha1.aar\335856415bae6e50d3594e902025c487\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-core-utils:26.0.0-alpha1] C:\Users\mirahman\.gradle\caches\transforms-1\files-1.1\support-core-utils-26.0.0-alpha1.aar\335856415bae6e50d3594e902025c487\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-core-ui:26.0.0-alpha1] C:\Users\mirahman\.gradle\caches\transforms-1\files-1.1\support-core-ui-26.0.0-alpha1.aar\a00e8f1aa9c4c98d7ee1df627107bb05\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-core-ui:26.0.0-alpha1] C:\Users\mirahman\.gradle\caches\transforms-1\files-1.1\support-core-ui-26.0.0-alpha1.aar\a00e8f1aa9c4c98d7ee1df627107bb05\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-compat:26.0.0-alpha1] C:\Users\mirahman\.gradle\caches\transforms-1\files-1.1\support-compat-26.0.0-alpha1.aar\79ff97528c3e6acf4010a11847f87c96\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-compat:26.0.0-alpha1] C:\Users\mirahman\.gradle\caches\transforms-1\files-1.1\support-compat-26.0.0-alpha1.aar\79ff97528c3e6acf4010a11847f87c96\AndroidManifest.xml:29:5-20
 	android:label
 		ADDED from G:\Personal\BLE-Server-Client-AndroidStudio\app\src\main\AndroidManifest.xml:19:9-41
-	android:allowBackup
-		ADDED from G:\Personal\BLE-Server-Client-AndroidStudio\app\src\main\AndroidManifest.xml:17:9-35
 	android:icon
 		ADDED from G:\Personal\BLE-Server-Client-AndroidStudio\app\src\main\AndroidManifest.xml:18:9-45
+	android:allowBackup
+		ADDED from G:\Personal\BLE-Server-Client-AndroidStudio\app\src\main\AndroidManifest.xml:17:9-35
 	android:theme
 		ADDED from G:\Personal\BLE-Server-Client-AndroidStudio\app\src\main\AndroidManifest.xml:20:9-40
 activity#com.shoaibsaikat.ble.MainActivity
@@ -92,13 +120,18 @@ ADDED from G:\Personal\BLE-Server-Client-AndroidStudio\app\src\main\AndroidManif
 	android:name
 		ADDED from G:\Personal\BLE-Server-Client-AndroidStudio\app\src\main\AndroidManifest.xml:37:13-43
 meta-data#android.support.VERSION
-ADDED from [com.android.support:support-v4:26.0.0-alpha1] C:\Users\mirahman\.android\build-cache\9fbce35157293ead18c744e6baf4a887e6f9ad8e\output\AndroidManifest.xml:25:5-27:41
-MERGED from [com.android.support:support-media-compat:26.0.0-alpha1] C:\Users\mirahman\.android\build-cache\0fbf63c5c2c9f60643b740a6c690545c931e45ce\output\AndroidManifest.xml:25:5-27:41
-MERGED from [com.android.support:support-fragment:26.0.0-alpha1] C:\Users\mirahman\.android\build-cache\de42680668d859a4aff482c53979645367aaf964\output\AndroidManifest.xml:25:5-27:41
-MERGED from [com.android.support:support-core-ui:26.0.0-alpha1] C:\Users\mirahman\.android\build-cache\26a953d7e0a307d10e3401fad749599ff70111f6\output\AndroidManifest.xml:25:5-27:41
-MERGED from [com.android.support:support-core-utils:26.0.0-alpha1] C:\Users\mirahman\.android\build-cache\0baa40ea0b5e977d3a5871666b28cd89db10a97e\output\AndroidManifest.xml:25:5-27:41
-MERGED from [com.android.support:support-compat:26.0.0-alpha1] C:\Users\mirahman\.android\build-cache\b33bfdd8124f5caf1558076a57eecadbc6e77edf\output\AndroidManifest.xml:25:5-27:41
+ADDED from [com.android.support:support-v4:26.0.0-alpha1] C:\Users\mirahman\.gradle\caches\transforms-1\files-1.1\support-v4-26.0.0-alpha1.aar\8ee27fe202e50583bfc1780c0019b8ef\AndroidManifest.xml:25:5-27:41
+MERGED from [com.android.support:support-media-compat:26.0.0-alpha1] C:\Users\mirahman\.gradle\caches\transforms-1\files-1.1\support-media-compat-26.0.0-alpha1.aar\d1843ad6dc181fec4bc6df5bc165f252\AndroidManifest.xml:25:5-27:41
+MERGED from [com.android.support:support-media-compat:26.0.0-alpha1] C:\Users\mirahman\.gradle\caches\transforms-1\files-1.1\support-media-compat-26.0.0-alpha1.aar\d1843ad6dc181fec4bc6df5bc165f252\AndroidManifest.xml:25:5-27:41
+MERGED from [com.android.support:support-fragment:26.0.0-alpha1] C:\Users\mirahman\.gradle\caches\transforms-1\files-1.1\support-fragment-26.0.0-alpha1.aar\d1962a34ddd495c45f2ba1fc3d6cad45\AndroidManifest.xml:25:5-27:41
+MERGED from [com.android.support:support-fragment:26.0.0-alpha1] C:\Users\mirahman\.gradle\caches\transforms-1\files-1.1\support-fragment-26.0.0-alpha1.aar\d1962a34ddd495c45f2ba1fc3d6cad45\AndroidManifest.xml:25:5-27:41
+MERGED from [com.android.support:support-core-utils:26.0.0-alpha1] C:\Users\mirahman\.gradle\caches\transforms-1\files-1.1\support-core-utils-26.0.0-alpha1.aar\335856415bae6e50d3594e902025c487\AndroidManifest.xml:25:5-27:41
+MERGED from [com.android.support:support-core-utils:26.0.0-alpha1] C:\Users\mirahman\.gradle\caches\transforms-1\files-1.1\support-core-utils-26.0.0-alpha1.aar\335856415bae6e50d3594e902025c487\AndroidManifest.xml:25:5-27:41
+MERGED from [com.android.support:support-core-ui:26.0.0-alpha1] C:\Users\mirahman\.gradle\caches\transforms-1\files-1.1\support-core-ui-26.0.0-alpha1.aar\a00e8f1aa9c4c98d7ee1df627107bb05\AndroidManifest.xml:25:5-27:41
+MERGED from [com.android.support:support-core-ui:26.0.0-alpha1] C:\Users\mirahman\.gradle\caches\transforms-1\files-1.1\support-core-ui-26.0.0-alpha1.aar\a00e8f1aa9c4c98d7ee1df627107bb05\AndroidManifest.xml:25:5-27:41
+MERGED from [com.android.support:support-compat:26.0.0-alpha1] C:\Users\mirahman\.gradle\caches\transforms-1\files-1.1\support-compat-26.0.0-alpha1.aar\79ff97528c3e6acf4010a11847f87c96\AndroidManifest.xml:25:5-27:41
+MERGED from [com.android.support:support-compat:26.0.0-alpha1] C:\Users\mirahman\.gradle\caches\transforms-1\files-1.1\support-compat-26.0.0-alpha1.aar\79ff97528c3e6acf4010a11847f87c96\AndroidManifest.xml:25:5-27:41
 	android:value
-		ADDED from [com.android.support:support-v4:26.0.0-alpha1] C:\Users\mirahman\.android\build-cache\9fbce35157293ead18c744e6baf4a887e6f9ad8e\output\AndroidManifest.xml:27:9-38
+		ADDED from [com.android.support:support-v4:26.0.0-alpha1] C:\Users\mirahman\.gradle\caches\transforms-1\files-1.1\support-v4-26.0.0-alpha1.aar\8ee27fe202e50583bfc1780c0019b8ef\AndroidManifest.xml:27:9-38
 	android:name
-		ADDED from [com.android.support:support-v4:26.0.0-alpha1] C:\Users\mirahman\.android\build-cache\9fbce35157293ead18c744e6baf4a887e6f9ad8e\output\AndroidManifest.xml:26:9-47
+		ADDED from [com.android.support:support-v4:26.0.0-alpha1] C:\Users\mirahman\.gradle\caches\transforms-1\files-1.1\support-v4-26.0.0-alpha1.aar\8ee27fe202e50583bfc1780c0019b8ef\AndroidManifest.xml:26:9-47
