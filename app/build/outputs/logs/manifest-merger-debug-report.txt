@@ -1,137 +1,170 @@
 -- Merging decision tree log ---
 manifest
-ADDED from G:\Personal\BLE-Server-Client-AndroidStudio\app\src\main\AndroidManifest.xml:2:1-42:12
-INJECTED from G:\Personal\BLE-Server-Client-AndroidStudio\app\src\main\AndroidManifest.xml:2:1-42:12
-INJECTED from G:\Personal\BLE-Server-Client-AndroidStudio\app\src\main\AndroidManifest.xml:2:1-42:12
-INJECTED from G:\Personal\BLE-Server-Client-AndroidStudio\app\src\main\AndroidManifest.xml:2:1-42:12
-MERGED from [com.android.support:support-v4:26.0.0-alpha1] C:\Users\mirahman\.gradle\caches\transforms-1\files-1.1\support-v4-26.0.0-alpha1.aar\52cfa9f3a0b54fbca86229fdec43c66e\AndroidManifest.xml:17:1-31:12
-MERGED from [com.android.support:support-media-compat:26.0.0-alpha1] C:\Users\mirahman\.gradle\caches\transforms-1\files-1.1\support-media-compat-26.0.0-alpha1.aar\adfde776c1baa2a62e39a72f0fccb5b3\AndroidManifest.xml:17:1-31:12
-MERGED from [com.android.support:support-fragment:26.0.0-alpha1] C:\Users\mirahman\.gradle\caches\transforms-1\files-1.1\support-fragment-26.0.0-alpha1.aar\45c987f5f0f3fe94208dfb53dc3b5efd\AndroidManifest.xml:17:1-31:12
-MERGED from [com.android.support:support-core-utils:26.0.0-alpha1] C:\Users\mirahman\.gradle\caches\transforms-1\files-1.1\support-core-utils-26.0.0-alpha1.aar\e01e091d6f2168b8596faaac2ea5386b\AndroidManifest.xml:17:1-31:12
-MERGED from [com.android.support:support-core-ui:26.0.0-alpha1] C:\Users\mirahman\.gradle\caches\transforms-1\files-1.1\support-core-ui-26.0.0-alpha1.aar\4dfeba1c79c01ac5601ee363b18930b8\AndroidManifest.xml:17:1-31:12
-MERGED from [com.android.support:support-compat:26.0.0-alpha1] C:\Users\mirahman\.gradle\caches\transforms-1\files-1.1\support-compat-26.0.0-alpha1.aar\7dd0d88f34762885b78e2140ee4c7870\AndroidManifest.xml:17:1-31:12
-INJECTED from G:\Personal\BLE-Server-Client-AndroidStudio\app\src\main\AndroidManifest.xml:2:1-42:12
-INJECTED from G:\Personal\BLE-Server-Client-AndroidStudio\app\src\main\AndroidManifest.xml:2:1-42:12
-INJECTED from G:\Personal\BLE-Server-Client-AndroidStudio\app\src\main\AndroidManifest.xml:2:1-42:12
+ADDED from D:\Practice zone\Android-BLE-Server-Client\app\src\main\AndroidManifest.xml:2:1-38:12
+INJECTED from D:\Practice zone\Android-BLE-Server-Client\app\src\main\AndroidManifest.xml:2:1-38:12
+INJECTED from D:\Practice zone\Android-BLE-Server-Client\app\src\main\AndroidManifest.xml:2:1-38:12
+INJECTED from D:\Practice zone\Android-BLE-Server-Client\app\src\main\AndroidManifest.xml:2:1-38:12
+MERGED from [com.android.support:support-v4:28.0.0] C:\Users\shoai\.gradle\caches\transforms-2\files-2.1\ff887725efb01ee084fa61563782ee3c\support-v4-28.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-media-compat:28.0.0] C:\Users\shoai\.gradle\caches\transforms-2\files-2.1\8aca4e385a19c5786957a72d8de77e9f\support-media-compat-28.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-fragment:28.0.0] C:\Users\shoai\.gradle\caches\transforms-2\files-2.1\7093625e245be2f9da059fb69635e386\support-fragment-28.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-ui:28.0.0] C:\Users\shoai\.gradle\caches\transforms-2\files-2.1\ebdaba724d630547519146b185ca3ca2\support-core-ui-28.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-utils:28.0.0] C:\Users\shoai\.gradle\caches\transforms-2\files-2.1\b4c6af1ae4345cab0a622f08a7523356\support-core-utils-28.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:loader:28.0.0] C:\Users\shoai\.gradle\caches\transforms-2\files-2.1\76f967ba5224a2324c7b36a6b6beb8ef\loader-28.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:viewpager:28.0.0] C:\Users\shoai\.gradle\caches\transforms-2\files-2.1\89face3daa86ec6e301af2545a00e819\viewpager-28.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:coordinatorlayout:28.0.0] C:\Users\shoai\.gradle\caches\transforms-2\files-2.1\7cadb58b8c0c86a09731971f6307fd56\coordinatorlayout-28.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:drawerlayout:28.0.0] C:\Users\shoai\.gradle\caches\transforms-2\files-2.1\efd769fb970c1894bc704f9b03375891\drawerlayout-28.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:slidingpanelayout:28.0.0] C:\Users\shoai\.gradle\caches\transforms-2\files-2.1\99286e9264ccffbdcfeef6a898d405a9\slidingpanelayout-28.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:customview:28.0.0] C:\Users\shoai\.gradle\caches\transforms-2\files-2.1\c645b14cbf7400c1620284ec778917ed\customview-28.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:swiperefreshlayout:28.0.0] C:\Users\shoai\.gradle\caches\transforms-2\files-2.1\69584d4b522a168305e2fe7e786b3c2d\swiperefreshlayout-28.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:asynclayoutinflater:28.0.0] C:\Users\shoai\.gradle\caches\transforms-2\files-2.1\f0aa855178a708528b0b89a033e11975\asynclayoutinflater-28.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-compat:28.0.0] C:\Users\shoai\.gradle\caches\transforms-2\files-2.1\06f6df44c76c4a181cad1895980d5a87\support-compat-28.0.0\AndroidManifest.xml:17:1-24:12
+MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\shoai\.gradle\caches\transforms-2\files-2.1\5b0bdb1141ca8e0033dd5a0f32776df1\versionedparcelable-28.0.0\AndroidManifest.xml:17:1-25:12
+MERGED from [android.arch.lifecycle:runtime:1.1.1] C:\Users\shoai\.gradle\caches\transforms-2\files-2.1\b3178544db81ff2083269db8058eb1dd\runtime-1.1.1\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:documentfile:28.0.0] C:\Users\shoai\.gradle\caches\transforms-2\files-2.1\fd28601af1e62f6b2008bfcf849ab48b\documentfile-28.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:localbroadcastmanager:28.0.0] C:\Users\shoai\.gradle\caches\transforms-2\files-2.1\a76aa01d89e969980164b1fd1e31c0c5\localbroadcastmanager-28.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:print:28.0.0] C:\Users\shoai\.gradle\caches\transforms-2\files-2.1\3c66927090c50d8cae8d532a1f537c39\print-28.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:interpolator:28.0.0] C:\Users\shoai\.gradle\caches\transforms-2\files-2.1\bd647f4fe7f1f1847c7c2a54d917be44\interpolator-28.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:cursoradapter:28.0.0] C:\Users\shoai\.gradle\caches\transforms-2\files-2.1\5a32061153c0ccb63d4c91e7462c854e\cursoradapter-28.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] C:\Users\shoai\.gradle\caches\transforms-2\files-2.1\6fc8c33e0b497e25ecd64651fccd3c8e\viewmodel-1.1.1\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:livedata:1.1.1] C:\Users\shoai\.gradle\caches\transforms-2\files-2.1\24deb7c88481bc7fd9652b157e2158d8\livedata-1.1.1\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] C:\Users\shoai\.gradle\caches\transforms-2\files-2.1\998135bdb7686494daa9579c72a212a4\livedata-core-1.1.1\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.core:runtime:1.1.1] C:\Users\shoai\.gradle\caches\transforms-2\files-2.1\158fb668b4a0516eb81e0ac79af18a91\runtime-1.1.1\AndroidManifest.xml:17:1-22:12
+INJECTED from D:\Practice zone\Android-BLE-Server-Client\app\src\main\AndroidManifest.xml:2:1-38:12
+INJECTED from D:\Practice zone\Android-BLE-Server-Client\app\src\main\AndroidManifest.xml:2:1-38:12
+INJECTED from D:\Practice zone\Android-BLE-Server-Client\app\src\main\AndroidManifest.xml:2:1-38:12
 	package
-		ADDED from G:\Personal\BLE-Server-Client-AndroidStudio\app\src\main\AndroidManifest.xml:3:5-35
-		INJECTED from G:\Personal\BLE-Server-Client-AndroidStudio\app\src\main\AndroidManifest.xml
-		INJECTED from G:\Personal\BLE-Server-Client-AndroidStudio\app\src\main\AndroidManifest.xml
+		ADDED from D:\Practice zone\Android-BLE-Server-Client\app\src\main\AndroidManifest.xml:3:5-35
+		INJECTED from D:\Practice zone\Android-BLE-Server-Client\app\src\main\AndroidManifest.xml
+		INJECTED from D:\Practice zone\Android-BLE-Server-Client\app\src\main\AndroidManifest.xml
 	android:versionName
-		ADDED from G:\Personal\BLE-Server-Client-AndroidStudio\app\src\main\AndroidManifest.xml:5:5-30
-		INJECTED from G:\Personal\BLE-Server-Client-AndroidStudio\app\src\main\AndroidManifest.xml
-		INJECTED from G:\Personal\BLE-Server-Client-AndroidStudio\app\src\main\AndroidManifest.xml
+		ADDED from D:\Practice zone\Android-BLE-Server-Client\app\src\main\AndroidManifest.xml:5:5-30
+		INJECTED from D:\Practice zone\Android-BLE-Server-Client\app\src\main\AndroidManifest.xml
+		INJECTED from D:\Practice zone\Android-BLE-Server-Client\app\src\main\AndroidManifest.xml
 	xmlns:android
-		ADDED from G:\Personal\BLE-Server-Client-AndroidStudio\app\src\main\AndroidManifest.xml:2:11-69
+		ADDED from D:\Practice zone\Android-BLE-Server-Client\app\src\main\AndroidManifest.xml:2:11-69
 	android:versionCode
-		ADDED from G:\Personal\BLE-Server-Client-AndroidStudio\app\src\main\AndroidManifest.xml:4:5-28
-		INJECTED from G:\Personal\BLE-Server-Client-AndroidStudio\app\src\main\AndroidManifest.xml
-		INJECTED from G:\Personal\BLE-Server-Client-AndroidStudio\app\src\main\AndroidManifest.xml
-uses-sdk
-ADDED from G:\Personal\BLE-Server-Client-AndroidStudio\app\src\main\AndroidManifest.xml:7:5-9:41
-INJECTED from G:\Personal\BLE-Server-Client-AndroidStudio\app\src\main\AndroidManifest.xml:7:5-9:41
-INJECTED from G:\Personal\BLE-Server-Client-AndroidStudio\app\src\main\AndroidManifest.xml:7:5-9:41
-MERGED from [com.android.support:support-v4:26.0.0-alpha1] C:\Users\mirahman\.gradle\caches\transforms-1\files-1.1\support-v4-26.0.0-alpha1.aar\52cfa9f3a0b54fbca86229fdec43c66e\AndroidManifest.xml:21:5-23:54
-MERGED from [com.android.support:support-v4:26.0.0-alpha1] C:\Users\mirahman\.gradle\caches\transforms-1\files-1.1\support-v4-26.0.0-alpha1.aar\52cfa9f3a0b54fbca86229fdec43c66e\AndroidManifest.xml:21:5-23:54
-MERGED from [com.android.support:support-media-compat:26.0.0-alpha1] C:\Users\mirahman\.gradle\caches\transforms-1\files-1.1\support-media-compat-26.0.0-alpha1.aar\adfde776c1baa2a62e39a72f0fccb5b3\AndroidManifest.xml:21:5-23:63
-MERGED from [com.android.support:support-media-compat:26.0.0-alpha1] C:\Users\mirahman\.gradle\caches\transforms-1\files-1.1\support-media-compat-26.0.0-alpha1.aar\adfde776c1baa2a62e39a72f0fccb5b3\AndroidManifest.xml:21:5-23:63
-MERGED from [com.android.support:support-fragment:26.0.0-alpha1] C:\Users\mirahman\.gradle\caches\transforms-1\files-1.1\support-fragment-26.0.0-alpha1.aar\45c987f5f0f3fe94208dfb53dc3b5efd\AndroidManifest.xml:21:5-23:60
-MERGED from [com.android.support:support-fragment:26.0.0-alpha1] C:\Users\mirahman\.gradle\caches\transforms-1\files-1.1\support-fragment-26.0.0-alpha1.aar\45c987f5f0f3fe94208dfb53dc3b5efd\AndroidManifest.xml:21:5-23:60
-MERGED from [com.android.support:support-core-utils:26.0.0-alpha1] C:\Users\mirahman\.gradle\caches\transforms-1\files-1.1\support-core-utils-26.0.0-alpha1.aar\e01e091d6f2168b8596faaac2ea5386b\AndroidManifest.xml:21:5-23:61
-MERGED from [com.android.support:support-core-utils:26.0.0-alpha1] C:\Users\mirahman\.gradle\caches\transforms-1\files-1.1\support-core-utils-26.0.0-alpha1.aar\e01e091d6f2168b8596faaac2ea5386b\AndroidManifest.xml:21:5-23:61
-MERGED from [com.android.support:support-core-ui:26.0.0-alpha1] C:\Users\mirahman\.gradle\caches\transforms-1\files-1.1\support-core-ui-26.0.0-alpha1.aar\4dfeba1c79c01ac5601ee363b18930b8\AndroidManifest.xml:21:5-23:58
-MERGED from [com.android.support:support-core-ui:26.0.0-alpha1] C:\Users\mirahman\.gradle\caches\transforms-1\files-1.1\support-core-ui-26.0.0-alpha1.aar\4dfeba1c79c01ac5601ee363b18930b8\AndroidManifest.xml:21:5-23:58
-MERGED from [com.android.support:support-compat:26.0.0-alpha1] C:\Users\mirahman\.gradle\caches\transforms-1\files-1.1\support-compat-26.0.0-alpha1.aar\7dd0d88f34762885b78e2140ee4c7870\AndroidManifest.xml:21:5-23:58
-MERGED from [com.android.support:support-compat:26.0.0-alpha1] C:\Users\mirahman\.gradle\caches\transforms-1\files-1.1\support-compat-26.0.0-alpha1.aar\7dd0d88f34762885b78e2140ee4c7870\AndroidManifest.xml:21:5-23:58
-INJECTED from G:\Personal\BLE-Server-Client-AndroidStudio\app\src\main\AndroidManifest.xml:7:5-9:41
-INJECTED from G:\Personal\BLE-Server-Client-AndroidStudio\app\src\main\AndroidManifest.xml:7:5-9:41
-	tools:overrideLibrary
-		ADDED from [com.android.support:support-v4:26.0.0-alpha1] C:\Users\mirahman\.gradle\caches\transforms-1\files-1.1\support-v4-26.0.0-alpha1.aar\52cfa9f3a0b54fbca86229fdec43c66e\AndroidManifest.xml:23:9-51
-	android:targetSdkVersion
-		ADDED from G:\Personal\BLE-Server-Client-AndroidStudio\app\src\main\AndroidManifest.xml:9:9-38
-		INJECTED from G:\Personal\BLE-Server-Client-AndroidStudio\app\src\main\AndroidManifest.xml
-		INJECTED from G:\Personal\BLE-Server-Client-AndroidStudio\app\src\main\AndroidManifest.xml
-	android:minSdkVersion
-		ADDED from G:\Personal\BLE-Server-Client-AndroidStudio\app\src\main\AndroidManifest.xml:8:9-35
-		INJECTED from G:\Personal\BLE-Server-Client-AndroidStudio\app\src\main\AndroidManifest.xml
-		INJECTED from G:\Personal\BLE-Server-Client-AndroidStudio\app\src\main\AndroidManifest.xml
+		ADDED from D:\Practice zone\Android-BLE-Server-Client\app\src\main\AndroidManifest.xml:4:5-28
+		INJECTED from D:\Practice zone\Android-BLE-Server-Client\app\src\main\AndroidManifest.xml
+		INJECTED from D:\Practice zone\Android-BLE-Server-Client\app\src\main\AndroidManifest.xml
 uses-permission#android.permission.BLUETOOTH
-ADDED from G:\Personal\BLE-Server-Client-AndroidStudio\app\src\main\AndroidManifest.xml:11:5-67
+ADDED from D:\Practice zone\Android-BLE-Server-Client\app\src\main\AndroidManifest.xml:7:5-67
 	android:name
-		ADDED from G:\Personal\BLE-Server-Client-AndroidStudio\app\src\main\AndroidManifest.xml:11:22-65
+		ADDED from D:\Practice zone\Android-BLE-Server-Client\app\src\main\AndroidManifest.xml:7:22-65
 uses-permission#android.permission.BLUETOOTH_ADMIN
-ADDED from G:\Personal\BLE-Server-Client-AndroidStudio\app\src\main\AndroidManifest.xml:12:2-70
+ADDED from D:\Practice zone\Android-BLE-Server-Client\app\src\main\AndroidManifest.xml:8:2-70
 	android:name
-		ADDED from G:\Personal\BLE-Server-Client-AndroidStudio\app\src\main\AndroidManifest.xml:12:19-68
+		ADDED from D:\Practice zone\Android-BLE-Server-Client\app\src\main\AndroidManifest.xml:8:19-68
 uses-feature#android.hardware.bluetooth_le
-ADDED from G:\Personal\BLE-Server-Client-AndroidStudio\app\src\main\AndroidManifest.xml:14:2-86
+ADDED from D:\Practice zone\Android-BLE-Server-Client\app\src\main\AndroidManifest.xml:10:2-86
 	android:required
-		ADDED from G:\Personal\BLE-Server-Client-AndroidStudio\app\src\main\AndroidManifest.xml:14:61-84
+		ADDED from D:\Practice zone\Android-BLE-Server-Client\app\src\main\AndroidManifest.xml:10:61-84
 	android:name
-		ADDED from G:\Personal\BLE-Server-Client-AndroidStudio\app\src\main\AndroidManifest.xml:14:16-60
+		ADDED from D:\Practice zone\Android-BLE-Server-Client\app\src\main\AndroidManifest.xml:10:16-60
 application
-ADDED from G:\Personal\BLE-Server-Client-AndroidStudio\app\src\main\AndroidManifest.xml:16:5-40:19
-MERGED from [com.android.support:support-v4:26.0.0-alpha1] C:\Users\mirahman\.gradle\caches\transforms-1\files-1.1\support-v4-26.0.0-alpha1.aar\52cfa9f3a0b54fbca86229fdec43c66e\AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:support-v4:26.0.0-alpha1] C:\Users\mirahman\.gradle\caches\transforms-1\files-1.1\support-v4-26.0.0-alpha1.aar\52cfa9f3a0b54fbca86229fdec43c66e\AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:support-media-compat:26.0.0-alpha1] C:\Users\mirahman\.gradle\caches\transforms-1\files-1.1\support-media-compat-26.0.0-alpha1.aar\adfde776c1baa2a62e39a72f0fccb5b3\AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:support-media-compat:26.0.0-alpha1] C:\Users\mirahman\.gradle\caches\transforms-1\files-1.1\support-media-compat-26.0.0-alpha1.aar\adfde776c1baa2a62e39a72f0fccb5b3\AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:support-fragment:26.0.0-alpha1] C:\Users\mirahman\.gradle\caches\transforms-1\files-1.1\support-fragment-26.0.0-alpha1.aar\45c987f5f0f3fe94208dfb53dc3b5efd\AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:support-fragment:26.0.0-alpha1] C:\Users\mirahman\.gradle\caches\transforms-1\files-1.1\support-fragment-26.0.0-alpha1.aar\45c987f5f0f3fe94208dfb53dc3b5efd\AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:support-core-utils:26.0.0-alpha1] C:\Users\mirahman\.gradle\caches\transforms-1\files-1.1\support-core-utils-26.0.0-alpha1.aar\e01e091d6f2168b8596faaac2ea5386b\AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:support-core-utils:26.0.0-alpha1] C:\Users\mirahman\.gradle\caches\transforms-1\files-1.1\support-core-utils-26.0.0-alpha1.aar\e01e091d6f2168b8596faaac2ea5386b\AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:support-core-ui:26.0.0-alpha1] C:\Users\mirahman\.gradle\caches\transforms-1\files-1.1\support-core-ui-26.0.0-alpha1.aar\4dfeba1c79c01ac5601ee363b18930b8\AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:support-core-ui:26.0.0-alpha1] C:\Users\mirahman\.gradle\caches\transforms-1\files-1.1\support-core-ui-26.0.0-alpha1.aar\4dfeba1c79c01ac5601ee363b18930b8\AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:support-compat:26.0.0-alpha1] C:\Users\mirahman\.gradle\caches\transforms-1\files-1.1\support-compat-26.0.0-alpha1.aar\7dd0d88f34762885b78e2140ee4c7870\AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:support-compat:26.0.0-alpha1] C:\Users\mirahman\.gradle\caches\transforms-1\files-1.1\support-compat-26.0.0-alpha1.aar\7dd0d88f34762885b78e2140ee4c7870\AndroidManifest.xml:29:5-20
+ADDED from D:\Practice zone\Android-BLE-Server-Client\app\src\main\AndroidManifest.xml:12:5-36:19
+MERGED from [com.android.support:support-compat:28.0.0] C:\Users\shoai\.gradle\caches\transforms-2\files-2.1\06f6df44c76c4a181cad1895980d5a87\support-compat-28.0.0\AndroidManifest.xml:22:5-94
+MERGED from [com.android.support:support-compat:28.0.0] C:\Users\shoai\.gradle\caches\transforms-2\files-2.1\06f6df44c76c4a181cad1895980d5a87\support-compat-28.0.0\AndroidManifest.xml:22:5-94
+MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\shoai\.gradle\caches\transforms-2\files-2.1\5b0bdb1141ca8e0033dd5a0f32776df1\versionedparcelable-28.0.0\AndroidManifest.xml:22:5-23:19
+MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\shoai\.gradle\caches\transforms-2\files-2.1\5b0bdb1141ca8e0033dd5a0f32776df1\versionedparcelable-28.0.0\AndroidManifest.xml:22:5-23:19
+	android:appComponentFactory
+		ADDED from [com.android.support:support-compat:28.0.0] C:\Users\shoai\.gradle\caches\transforms-2\files-2.1\06f6df44c76c4a181cad1895980d5a87\support-compat-28.0.0\AndroidManifest.xml:22:18-91
 	android:label
-		ADDED from G:\Personal\BLE-Server-Client-AndroidStudio\app\src\main\AndroidManifest.xml:19:9-41
+		ADDED from D:\Practice zone\Android-BLE-Server-Client\app\src\main\AndroidManifest.xml:15:9-41
 	android:icon
-		ADDED from G:\Personal\BLE-Server-Client-AndroidStudio\app\src\main\AndroidManifest.xml:18:9-45
+		ADDED from D:\Practice zone\Android-BLE-Server-Client\app\src\main\AndroidManifest.xml:14:9-45
 	android:allowBackup
-		ADDED from G:\Personal\BLE-Server-Client-AndroidStudio\app\src\main\AndroidManifest.xml:17:9-35
+		ADDED from D:\Practice zone\Android-BLE-Server-Client\app\src\main\AndroidManifest.xml:13:9-35
 	android:theme
-		ADDED from G:\Personal\BLE-Server-Client-AndroidStudio\app\src\main\AndroidManifest.xml:20:9-40
+		ADDED from D:\Practice zone\Android-BLE-Server-Client\app\src\main\AndroidManifest.xml:16:9-40
 activity#com.shoaibsaikat.ble.MainActivity
-ADDED from G:\Personal\BLE-Server-Client-AndroidStudio\app\src\main\AndroidManifest.xml:21:9-29:20
+ADDED from D:\Practice zone\Android-BLE-Server-Client\app\src\main\AndroidManifest.xml:17:9-25:20
 	android:label
-		ADDED from G:\Personal\BLE-Server-Client-AndroidStudio\app\src\main\AndroidManifest.xml:23:13-45
+		ADDED from D:\Practice zone\Android-BLE-Server-Client\app\src\main\AndroidManifest.xml:19:13-45
 	android:name
-		ADDED from G:\Personal\BLE-Server-Client-AndroidStudio\app\src\main\AndroidManifest.xml:22:13-41
-intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
-ADDED from G:\Personal\BLE-Server-Client-AndroidStudio\app\src\main\AndroidManifest.xml:24:13-28:29
+		ADDED from D:\Practice zone\Android-BLE-Server-Client\app\src\main\AndroidManifest.xml:18:13-41
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from D:\Practice zone\Android-BLE-Server-Client\app\src\main\AndroidManifest.xml:20:13-24:29
 action#android.intent.action.MAIN
-ADDED from G:\Personal\BLE-Server-Client-AndroidStudio\app\src\main\AndroidManifest.xml:25:17-69
+ADDED from D:\Practice zone\Android-BLE-Server-Client\app\src\main\AndroidManifest.xml:21:17-69
 	android:name
-		ADDED from G:\Personal\BLE-Server-Client-AndroidStudio\app\src\main\AndroidManifest.xml:25:25-66
+		ADDED from D:\Practice zone\Android-BLE-Server-Client\app\src\main\AndroidManifest.xml:21:25-66
 category#android.intent.category.LAUNCHER
-ADDED from G:\Personal\BLE-Server-Client-AndroidStudio\app\src\main\AndroidManifest.xml:27:17-77
+ADDED from D:\Practice zone\Android-BLE-Server-Client\app\src\main\AndroidManifest.xml:23:17-77
 	android:name
-		ADDED from G:\Personal\BLE-Server-Client-AndroidStudio\app\src\main\AndroidManifest.xml:27:27-74
+		ADDED from D:\Practice zone\Android-BLE-Server-Client\app\src\main\AndroidManifest.xml:23:27-74
 activity#com.shoaibsaikat.ble.ServerActivity
-ADDED from G:\Personal\BLE-Server-Client-AndroidStudio\app\src\main\AndroidManifest.xml:31:9-34:20
+ADDED from D:\Practice zone\Android-BLE-Server-Client\app\src\main\AndroidManifest.xml:27:9-30:20
 	android:label
-		ADDED from G:\Personal\BLE-Server-Client-AndroidStudio\app\src\main\AndroidManifest.xml:33:13-45
+		ADDED from D:\Practice zone\Android-BLE-Server-Client\app\src\main\AndroidManifest.xml:29:13-45
 	android:name
-		ADDED from G:\Personal\BLE-Server-Client-AndroidStudio\app\src\main\AndroidManifest.xml:32:13-43
+		ADDED from D:\Practice zone\Android-BLE-Server-Client\app\src\main\AndroidManifest.xml:28:13-43
 activity#com.shoaibsaikat.ble.ClientActivity
-ADDED from G:\Personal\BLE-Server-Client-AndroidStudio\app\src\main\AndroidManifest.xml:36:9-39:20
+ADDED from D:\Practice zone\Android-BLE-Server-Client\app\src\main\AndroidManifest.xml:32:9-35:20
 	android:label
-		ADDED from G:\Personal\BLE-Server-Client-AndroidStudio\app\src\main\AndroidManifest.xml:38:13-45
+		ADDED from D:\Practice zone\Android-BLE-Server-Client\app\src\main\AndroidManifest.xml:34:13-45
 	android:name
-		ADDED from G:\Personal\BLE-Server-Client-AndroidStudio\app\src\main\AndroidManifest.xml:37:13-43
-meta-data#android.support.VERSION
-ADDED from [com.android.support:support-v4:26.0.0-alpha1] C:\Users\mirahman\.gradle\caches\transforms-1\files-1.1\support-v4-26.0.0-alpha1.aar\52cfa9f3a0b54fbca86229fdec43c66e\AndroidManifest.xml:25:5-27:41
-MERGED from [com.android.support:support-media-compat:26.0.0-alpha1] C:\Users\mirahman\.gradle\caches\transforms-1\files-1.1\support-media-compat-26.0.0-alpha1.aar\adfde776c1baa2a62e39a72f0fccb5b3\AndroidManifest.xml:25:5-27:41
-MERGED from [com.android.support:support-media-compat:26.0.0-alpha1] C:\Users\mirahman\.gradle\caches\transforms-1\files-1.1\support-media-compat-26.0.0-alpha1.aar\adfde776c1baa2a62e39a72f0fccb5b3\AndroidManifest.xml:25:5-27:41
-MERGED from [com.android.support:support-fragment:26.0.0-alpha1] C:\Users\mirahman\.gradle\caches\transforms-1\files-1.1\support-fragment-26.0.0-alpha1.aar\45c987f5f0f3fe94208dfb53dc3b5efd\AndroidManifest.xml:25:5-27:41
-MERGED from [com.android.support:support-fragment:26.0.0-alpha1] C:\Users\mirahman\.gradle\caches\transforms-1\files-1.1\support-fragment-26.0.0-alpha1.aar\45c987f5f0f3fe94208dfb53dc3b5efd\AndroidManifest.xml:25:5-27:41
-MERGED from [com.android.support:support-core-utils:26.0.0-alpha1] C:\Users\mirahman\.gradle\caches\transforms-1\files-1.1\support-core-utils-26.0.0-alpha1.aar\e01e091d6f2168b8596faaac2ea5386b\AndroidManifest.xml:25:5-27:41
-MERGED from [com.android.support:support-core-utils:26.0.0-alpha1] C:\Users\mirahman\.gradle\caches\transforms-1\files-1.1\support-core-utils-26.0.0-alpha1.aar\e01e091d6f2168b8596faaac2ea5386b\AndroidManifest.xml:25:5-27:41
-MERGED from [com.android.support:support-core-ui:26.0.0-alpha1] C:\Users\mirahman\.gradle\caches\transforms-1\files-1.1\support-core-ui-26.0.0-alpha1.aar\4dfeba1c79c01ac5601ee363b18930b8\AndroidManifest.xml:25:5-27:41
-MERGED from [com.android.support:support-core-ui:26.0.0-alpha1] C:\Users\mirahman\.gradle\caches\transforms-1\files-1.1\support-core-ui-26.0.0-alpha1.aar\4dfeba1c79c01ac5601ee363b18930b8\AndroidManifest.xml:25:5-27:41
-MERGED from [com.android.support:support-compat:26.0.0-alpha1] C:\Users\mirahman\.gradle\caches\transforms-1\files-1.1\support-compat-26.0.0-alpha1.aar\7dd0d88f34762885b78e2140ee4c7870\AndroidManifest.xml:25:5-27:41
-MERGED from [com.android.support:support-compat:26.0.0-alpha1] C:\Users\mirahman\.gradle\caches\transforms-1\files-1.1\support-compat-26.0.0-alpha1.aar\7dd0d88f34762885b78e2140ee4c7870\AndroidManifest.xml:25:5-27:41
-	android:value
-		ADDED from [com.android.support:support-v4:26.0.0-alpha1] C:\Users\mirahman\.gradle\caches\transforms-1\files-1.1\support-v4-26.0.0-alpha1.aar\52cfa9f3a0b54fbca86229fdec43c66e\AndroidManifest.xml:27:9-38
-	android:name
-		ADDED from [com.android.support:support-v4:26.0.0-alpha1] C:\Users\mirahman\.gradle\caches\transforms-1\files-1.1\support-v4-26.0.0-alpha1.aar\52cfa9f3a0b54fbca86229fdec43c66e\AndroidManifest.xml:26:9-47
+		ADDED from D:\Practice zone\Android-BLE-Server-Client\app\src\main\AndroidManifest.xml:33:13-43
+uses-sdk
+INJECTED from D:\Practice zone\Android-BLE-Server-Client\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from D:\Practice zone\Android-BLE-Server-Client\app\src\main\AndroidManifest.xml
+INJECTED from D:\Practice zone\Android-BLE-Server-Client\app\src\main\AndroidManifest.xml
+MERGED from [com.android.support:support-v4:28.0.0] C:\Users\shoai\.gradle\caches\transforms-2\files-2.1\ff887725efb01ee084fa61563782ee3c\support-v4-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v4:28.0.0] C:\Users\shoai\.gradle\caches\transforms-2\files-2.1\ff887725efb01ee084fa61563782ee3c\support-v4-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-media-compat:28.0.0] C:\Users\shoai\.gradle\caches\transforms-2\files-2.1\8aca4e385a19c5786957a72d8de77e9f\support-media-compat-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-media-compat:28.0.0] C:\Users\shoai\.gradle\caches\transforms-2\files-2.1\8aca4e385a19c5786957a72d8de77e9f\support-media-compat-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:28.0.0] C:\Users\shoai\.gradle\caches\transforms-2\files-2.1\7093625e245be2f9da059fb69635e386\support-fragment-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:28.0.0] C:\Users\shoai\.gradle\caches\transforms-2\files-2.1\7093625e245be2f9da059fb69635e386\support-fragment-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:28.0.0] C:\Users\shoai\.gradle\caches\transforms-2\files-2.1\ebdaba724d630547519146b185ca3ca2\support-core-ui-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:28.0.0] C:\Users\shoai\.gradle\caches\transforms-2\files-2.1\ebdaba724d630547519146b185ca3ca2\support-core-ui-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:28.0.0] C:\Users\shoai\.gradle\caches\transforms-2\files-2.1\b4c6af1ae4345cab0a622f08a7523356\support-core-utils-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:28.0.0] C:\Users\shoai\.gradle\caches\transforms-2\files-2.1\b4c6af1ae4345cab0a622f08a7523356\support-core-utils-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:loader:28.0.0] C:\Users\shoai\.gradle\caches\transforms-2\files-2.1\76f967ba5224a2324c7b36a6b6beb8ef\loader-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:loader:28.0.0] C:\Users\shoai\.gradle\caches\transforms-2\files-2.1\76f967ba5224a2324c7b36a6b6beb8ef\loader-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:viewpager:28.0.0] C:\Users\shoai\.gradle\caches\transforms-2\files-2.1\89face3daa86ec6e301af2545a00e819\viewpager-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:viewpager:28.0.0] C:\Users\shoai\.gradle\caches\transforms-2\files-2.1\89face3daa86ec6e301af2545a00e819\viewpager-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:coordinatorlayout:28.0.0] C:\Users\shoai\.gradle\caches\transforms-2\files-2.1\7cadb58b8c0c86a09731971f6307fd56\coordinatorlayout-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:coordinatorlayout:28.0.0] C:\Users\shoai\.gradle\caches\transforms-2\files-2.1\7cadb58b8c0c86a09731971f6307fd56\coordinatorlayout-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:drawerlayout:28.0.0] C:\Users\shoai\.gradle\caches\transforms-2\files-2.1\efd769fb970c1894bc704f9b03375891\drawerlayout-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:drawerlayout:28.0.0] C:\Users\shoai\.gradle\caches\transforms-2\files-2.1\efd769fb970c1894bc704f9b03375891\drawerlayout-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:slidingpanelayout:28.0.0] C:\Users\shoai\.gradle\caches\transforms-2\files-2.1\99286e9264ccffbdcfeef6a898d405a9\slidingpanelayout-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:slidingpanelayout:28.0.0] C:\Users\shoai\.gradle\caches\transforms-2\files-2.1\99286e9264ccffbdcfeef6a898d405a9\slidingpanelayout-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:customview:28.0.0] C:\Users\shoai\.gradle\caches\transforms-2\files-2.1\c645b14cbf7400c1620284ec778917ed\customview-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:customview:28.0.0] C:\Users\shoai\.gradle\caches\transforms-2\files-2.1\c645b14cbf7400c1620284ec778917ed\customview-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:swiperefreshlayout:28.0.0] C:\Users\shoai\.gradle\caches\transforms-2\files-2.1\69584d4b522a168305e2fe7e786b3c2d\swiperefreshlayout-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:swiperefreshlayout:28.0.0] C:\Users\shoai\.gradle\caches\transforms-2\files-2.1\69584d4b522a168305e2fe7e786b3c2d\swiperefreshlayout-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:asynclayoutinflater:28.0.0] C:\Users\shoai\.gradle\caches\transforms-2\files-2.1\f0aa855178a708528b0b89a033e11975\asynclayoutinflater-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:asynclayoutinflater:28.0.0] C:\Users\shoai\.gradle\caches\transforms-2\files-2.1\f0aa855178a708528b0b89a033e11975\asynclayoutinflater-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:28.0.0] C:\Users\shoai\.gradle\caches\transforms-2\files-2.1\06f6df44c76c4a181cad1895980d5a87\support-compat-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:28.0.0] C:\Users\shoai\.gradle\caches\transforms-2\files-2.1\06f6df44c76c4a181cad1895980d5a87\support-compat-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\shoai\.gradle\caches\transforms-2\files-2.1\5b0bdb1141ca8e0033dd5a0f32776df1\versionedparcelable-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\shoai\.gradle\caches\transforms-2\files-2.1\5b0bdb1141ca8e0033dd5a0f32776df1\versionedparcelable-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.1] C:\Users\shoai\.gradle\caches\transforms-2\files-2.1\b3178544db81ff2083269db8058eb1dd\runtime-1.1.1\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.1] C:\Users\shoai\.gradle\caches\transforms-2\files-2.1\b3178544db81ff2083269db8058eb1dd\runtime-1.1.1\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:documentfile:28.0.0] C:\Users\shoai\.gradle\caches\transforms-2\files-2.1\fd28601af1e62f6b2008bfcf849ab48b\documentfile-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:documentfile:28.0.0] C:\Users\shoai\.gradle\caches\transforms-2\files-2.1\fd28601af1e62f6b2008bfcf849ab48b\documentfile-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:localbroadcastmanager:28.0.0] C:\Users\shoai\.gradle\caches\transforms-2\files-2.1\a76aa01d89e969980164b1fd1e31c0c5\localbroadcastmanager-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:localbroadcastmanager:28.0.0] C:\Users\shoai\.gradle\caches\transforms-2\files-2.1\a76aa01d89e969980164b1fd1e31c0c5\localbroadcastmanager-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:print:28.0.0] C:\Users\shoai\.gradle\caches\transforms-2\files-2.1\3c66927090c50d8cae8d532a1f537c39\print-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:print:28.0.0] C:\Users\shoai\.gradle\caches\transforms-2\files-2.1\3c66927090c50d8cae8d532a1f537c39\print-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:interpolator:28.0.0] C:\Users\shoai\.gradle\caches\transforms-2\files-2.1\bd647f4fe7f1f1847c7c2a54d917be44\interpolator-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:interpolator:28.0.0] C:\Users\shoai\.gradle\caches\transforms-2\files-2.1\bd647f4fe7f1f1847c7c2a54d917be44\interpolator-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cursoradapter:28.0.0] C:\Users\shoai\.gradle\caches\transforms-2\files-2.1\5a32061153c0ccb63d4c91e7462c854e\cursoradapter-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cursoradapter:28.0.0] C:\Users\shoai\.gradle\caches\transforms-2\files-2.1\5a32061153c0ccb63d4c91e7462c854e\cursoradapter-28.0.0\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] C:\Users\shoai\.gradle\caches\transforms-2\files-2.1\6fc8c33e0b497e25ecd64651fccd3c8e\viewmodel-1.1.1\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] C:\Users\shoai\.gradle\caches\transforms-2\files-2.1\6fc8c33e0b497e25ecd64651fccd3c8e\viewmodel-1.1.1\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata:1.1.1] C:\Users\shoai\.gradle\caches\transforms-2\files-2.1\24deb7c88481bc7fd9652b157e2158d8\livedata-1.1.1\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata:1.1.1] C:\Users\shoai\.gradle\caches\transforms-2\files-2.1\24deb7c88481bc7fd9652b157e2158d8\livedata-1.1.1\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] C:\Users\shoai\.gradle\caches\transforms-2\files-2.1\998135bdb7686494daa9579c72a212a4\livedata-core-1.1.1\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] C:\Users\shoai\.gradle\caches\transforms-2\files-2.1\998135bdb7686494daa9579c72a212a4\livedata-core-1.1.1\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.1] C:\Users\shoai\.gradle\caches\transforms-2\files-2.1\158fb668b4a0516eb81e0ac79af18a91\runtime-1.1.1\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.1] C:\Users\shoai\.gradle\caches\transforms-2\files-2.1\158fb668b4a0516eb81e0ac79af18a91\runtime-1.1.1\AndroidManifest.xml:20:5-44
+INJECTED from D:\Practice zone\Android-BLE-Server-Client\app\src\main\AndroidManifest.xml
+INJECTED from D:\Practice zone\Android-BLE-Server-Client\app\src\main\AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from D:\Practice zone\Android-BLE-Server-Client\app\src\main\AndroidManifest.xml
+		ADDED from D:\Practice zone\Android-BLE-Server-Client\app\src\main\AndroidManifest.xml
+		INJECTED from D:\Practice zone\Android-BLE-Server-Client\app\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from D:\Practice zone\Android-BLE-Server-Client\app\src\main\AndroidManifest.xml
+		ADDED from D:\Practice zone\Android-BLE-Server-Client\app\src\main\AndroidManifest.xml
+		INJECTED from D:\Practice zone\Android-BLE-Server-Client\app\src\main\AndroidManifest.xml

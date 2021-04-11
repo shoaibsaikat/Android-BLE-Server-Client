@@ -1,0 +1,20 @@
+com/shoaibsaikat/ble/BuildConfig.java
+ com.shoaibsaikat.ble.BuildConfig
+com/shoaibsaikat/ble/MainActivity.java
+ com.shoaibsaikat.ble.MainActivity
+com/shoaibsaikat/ble/ClientActivity.java
+ com.shoaibsaikat.ble.ClientActivity
+ com.shoaibsaikat.ble.ClientActivity$1
+ com.shoaibsaikat.ble.ClientActivity$2
+ com.shoaibsaikat.ble.ClientActivity$3
+ com.shoaibsaikat.ble.ClientActivity$4
+ com.shoaibsaikat.ble.ClientActivity$4$1
+ com.shoaibsaikat.ble.ClientActivity$5
+ com.shoaibsaikat.ble.ClientActivity$5$1
+com/shoaibsaikat/ble/BluetoothUtility.java
+ com.shoaibsaikat.ble.BluetoothUtility
+com/shoaibsaikat/ble/ServerActivity.java
+ com.shoaibsaikat.ble.ServerActivity
+ com.shoaibsaikat.ble.ServerActivity$1
+ com.shoaibsaikat.ble.ServerActivity$2
+ com.shoaibsaikat.ble.ServerActivity$2$1
