@@ -37,7 +37,6 @@ public class ClientActivity extends AppCompatActivity {
     private Button btnScan;
     private Button btnStop;
     private Button btnConnect;
-    private Button btnSend;
     private EditText etInput;
     private TextView tvClient;
     private Spinner spnCentralList;
@@ -71,7 +70,6 @@ public class ClientActivity extends AppCompatActivity {
 
         btnScan = findViewById(R.id.buttonScan);
         btnStop = findViewById(R.id.buttonStopScan);
-        btnSend = findViewById(R.id.buttonSendClient);
         btnConnect = findViewById(R.id.buttonConnect);
         spnCentralList = findViewById(R.id.spinnerCentralList);
         etInput = findViewById(R.id.editTextInputClient);

@@ -1,6 +1,5 @@
 package com.shoaibsaikat.ble;
 
-import android.annotation.TargetApi;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothGatt;
@@ -15,7 +14,6 @@ import android.bluetooth.le.AdvertiseSettings;
 import android.bluetooth.le.BluetoothLeAdvertiser;
 import android.content.Context;
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.ParcelUuid;
 import android.util.Log;
@@ -28,15 +26,11 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.UUID;
 
-
-@TargetApi(Build.VERSION_CODES.LOLLIPOP)
 public class ServerActivity extends AppCompatActivity {
     private Button btnStopAdv;
     private Button btnAdv;
-    private Button btnSendData;
     private EditText etInput;
     private TextView tvServer;
     
@@ -50,7 +44,7 @@ public class ServerActivity extends AppCompatActivity {
     private boolean isDeviceSet = false;
     
     private ArrayList<BluetoothGattService> mAdvertisingServices;
-    private List<ParcelUuid> mServiceUuids;
+    private ArrayList<ParcelUuid> mServiceUuids;
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,16 +55,14 @@ public class ServerActivity extends AppCompatActivity {
         
         mBluetoothManager = (BluetoothManager) getApplicationContext().getSystemService(Context.BLUETOOTH_SERVICE);
         mBluetoothAdapter = mBluetoothManager.getAdapter();
-        //bluetoothAdapter.setName(BLUETOOTH_ADAPTER_NAME);
         mBluetoothLeAdvertiser = mBluetoothAdapter.getBluetoothLeAdvertiser();
-        mAdvertisingServices = new ArrayList<BluetoothGattService>();
-        mServiceUuids = new ArrayList<ParcelUuid>();
+        mAdvertisingServices = new ArrayList();
+        mServiceUuids = new ArrayList();
 
-        btnAdv = (Button)findViewById(R.id.buttonAdvStart);
-        btnStopAdv = (Button)findViewById(R.id.buttonAdvStop);
-        btnSendData = (Button) findViewById(R.id.buttonSendServer);
-        tvServer = (TextView) findViewById(R.id.textViewServer);
-        etInput = (EditText) findViewById(R.id.editTextInputServer);
+        btnAdv = findViewById(R.id.buttonAdvStart);
+        btnStopAdv = findViewById(R.id.buttonAdvStop);
+        tvServer = findViewById(R.id.textViewServer);
+        etInput = findViewById(R.id.editTextInputServer);
         etInput.setText("Server");
 
         //adding service and characteristics
@@ -113,11 +105,10 @@ public class ServerActivity extends AppCompatActivity {
     }
     
     public void handleSendClick(View view) {
-    	if(isDeviceSet && writeCharacteristicToGatt(etInput.getText().toString())) {
+    	if (isDeviceSet && writeCharacteristicToGatt(etInput.getText().toString())) {
     		Toast.makeText(ServerActivity.this, "Data written", Toast.LENGTH_SHORT).show();
             Log.d(BluetoothUtility.TAG, "Data written from server");
-    	}
-    	else {
+    	} else {
     		Toast.makeText(ServerActivity.this, "Data not written", Toast.LENGTH_SHORT).show();
             Log.d(BluetoothUtility.TAG, "Data not written");
     	}
@@ -186,7 +177,7 @@ public class ServerActivity extends AppCompatActivity {
         }
     }
 
-    private AdvertiseCallback advertiseCallback = new AdvertiseCallback() {
+    private final AdvertiseCallback advertiseCallback = new AdvertiseCallback() {
     	@Override
         public void onStartSuccess(AdvertiseSettings advertiseSettings) {
             String successMsg = "Advertisement command attempt successful";
