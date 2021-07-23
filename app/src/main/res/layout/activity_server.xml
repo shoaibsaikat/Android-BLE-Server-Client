@@ -45,13 +45,13 @@
         android:layout_height="wrap_content"
         android:enabled="true"
         android:onClick="handleSendClick"
-        android:text="Send Data" />
+        android:text="Send" />
 
     <TextView
         android:id="@+id/textViewServer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Empty"
+        android:text="No Message Yet!"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
 </LinearLayout>

@@ -1,6 +1,16 @@
 # BLE-Server-Client-Android-AndroidStudio
 
-A Simple BLE server client both on Android Phone side. You have to start server first.
-Android Studio project of BLE-Server-Client-Android-Eclipse repository
+A Simple BLE server client both on Android Phone side.
 
-NOTE: not working properly anymore in new android sdk, will be fixed later
+Step:
+1. Run two instances of this app in two devices, one for server and other for client.
+2. Turn on Bluetooth on both devices and also give app location permission by going to settings.
+3. Pair both devices.
+4. For Server:
+	i. Click "Server".
+	ii. Click "Start Advertising".
+5. For Client:
+	i. Click "Client".
+	ii. Cick "Scan for Devices".
+	iii. You will see the server name on dropdown list. Select the appropriate device.
+6. Now type text you want to send from both client and server and click "Send". Message should arrive on opposite device.
