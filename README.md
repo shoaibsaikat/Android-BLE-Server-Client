@@ -1,5 +1,3 @@
-# BLE-Server-Client-Android-AndroidStudio
-
 A Simple BLE server client both on Android Phone side.
 
 Step:
