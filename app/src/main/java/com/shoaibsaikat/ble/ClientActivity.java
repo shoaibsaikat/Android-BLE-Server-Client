@@ -1,12 +1,6 @@
 package com.shoaibsaikat.ble;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.UUID;
-
 import android.annotation.SuppressLint;
-import android.annotation.TargetApi;
-import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothGatt;
@@ -17,12 +11,10 @@ import android.bluetooth.BluetoothManager;
 import android.bluetooth.BluetoothProfile;
 import android.bluetooth.le.BluetoothLeScanner;
 import android.bluetooth.le.ScanCallback;
-import android.bluetooth.le.ScanFilter;
+import android.bluetooth.le.ScanRecord;
 import android.bluetooth.le.ScanResult;
-import android.bluetooth.le.ScanSettings;
 import android.content.Context;
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -34,18 +26,14 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
 
-public class ClientActivity extends Activity {
-    private static final String TAG = "BLE";
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
 
-    public final static String ACTION_GATT_CONNECTED = "com.example.bluetooth.le.ACTION_GATT_CONNECTED";
-    public final static String ACTION_GATT_DISCONNECTED = "com.example.bluetooth.le.ACTION_GATT_DISCONNECTED";
-    public final static String ACTION_GATT_SERVICES_DISCOVERED = "com.example.bluetooth.le.ACTION_GATT_SERVICES_DISCOVERED";
-    public final static String ACTION_DATA_AVAILABLE = "com.example.bluetooth.le.ACTION_DATA_AVAILABLE";
-    public final static String EXTRA_DATA = "com.example.bluetooth.le.EXTRA_DATA";
 
-    public final static int SCAN_PERIOD = 2000;
-
+public class ClientActivity extends AppCompatActivity {
     private boolean isScanning;
     
     private Button btnScan;
@@ -58,11 +46,12 @@ public class ClientActivity extends Activity {
     
     private BluetoothManager mBluetoothManager;
     private BluetoothAdapter mBluetoothAdapter;
+    private BluetoothLeScanner mBluetoothLeScanner;
 
     private List<BluetoothDevice> mDeviceList;
     private ArrayList<String> mDeviceNameList;
     private static ArrayAdapter<String> centralAdapter;
-    
+
     private Handler mHandler;
     
     private BluetoothGatt mBtGatt = null;
@@ -71,7 +60,6 @@ public class ClientActivity extends Activity {
     
     private int mConnectionState = BluetoothProfile.STATE_DISCONNECTED;
     
-    @SuppressLint("NewApi")
 	@Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -81,14 +69,16 @@ public class ClientActivity extends Activity {
         
         mBluetoothManager = (BluetoothManager) getApplicationContext().getSystemService(Context.BLUETOOTH_SERVICE);
         mBluetoothAdapter = mBluetoothManager.getAdapter();
+        mBluetoothLeScanner = mBluetoothAdapter.getBluetoothLeScanner();
 
-        btnScan = (Button)findViewById(R.id.buttonScan);
-        btnStop = (Button)findViewById(R.id.buttonStopScan);
-        btnSend = (Button) findViewById(R.id.buttonSendClient);
-        btnConnect = (Button) findViewById(R.id.buttonConnect);
-        spnCentralList = (Spinner) findViewById(R.id.spinnerCentralList);
-        etInput = (EditText) findViewById(R.id.editTextInputClient);
-        tvClient = (TextView) findViewById(R.id.textViewClient);
+        btnScan = findViewById(R.id.buttonScan);
+        btnStop = findViewById(R.id.buttonStopScan);
+        btnSend = findViewById(R.id.buttonSendClient);
+        btnConnect = findViewById(R.id.buttonConnect);
+        spnCentralList = findViewById(R.id.spinnerCentralList);
+        etInput = findViewById(R.id.editTextInputClient);
+        tvClient = findViewById(R.id.textViewClient);
+
         etInput.setText("Client");
         btnConnect.setEnabled(false);
         
@@ -97,35 +87,28 @@ public class ClientActivity extends Activity {
         centralAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spnCentralList.setAdapter(centralAdapter);
         mDeviceList = new ArrayList<BluetoothDevice>();
-        
-        mHandler = new Handler() {
 
-			@Override
-			public void handleMessage(Message msg) {
-//				super.handleMessage(msg);
-			}
-        	
-        };
+        mHandler = new Handler();
     }
 
     @Override
     protected void onStop() {
-    	if(mDeviceNameList != null) {
+        if (mDeviceNameList != null) {
     		mDeviceNameList.clear();
     		mDeviceNameList = null;
     	}
-		if(mBtGatt != null)
+        if (mBtGatt != null)
 			mBtGatt.close();
         super.onStop();
     }
     
     @Override
     protected void onDestroy() {
-    	if(mDeviceNameList != null) {
+        if (mDeviceNameList != null) {
     		mDeviceNameList.clear();
     		mDeviceNameList = null;
     	}
-		if(mBtGatt != null)
+		if (mBtGatt != null)
 			mBtGatt.close();
         super.onDestroy();
     }
@@ -142,7 +125,6 @@ public class ClientActivity extends Activity {
             	centralAdapter.notifyDataSetChanged();
             }
         });
-        
         startBleScan();
     }
 
@@ -153,34 +135,33 @@ public class ClientActivity extends Activity {
     public void handleConnect(View view) {
     	int choice = spnCentralList.getSelectedItemPosition();
     	
-    	Log.d(TAG, "choosen: " + choice);
-    	Log.d(TAG, "devices size: " + mDeviceList.size());
+    	Log.d(BluetoothUtility.TAG, "choosen: " + choice);
+    	Log.d(BluetoothUtility.TAG, "devices size: " + mDeviceList.size());
     	
-    	if(mDeviceList.size() > 0) {
-    		if(mBtGatt != null)
+        if (mDeviceList.size() > 0) {
+            if (mBtGatt != null)
     			mBtGatt.close();
-    		
 	    	mBtGatt = mDeviceList.get(choice).connectGatt(getApplicationContext(), false, mGattCallback);
-    	}
-    	else
-    		Log.d(TAG, "No device to connect");
+    	} else {
+            Log.d(BluetoothUtility.TAG, "No device to connect");
+        }
     }
     
     public void handleSend(View view) {
-    	if(mBtGatt != null) {
+        if (mBtGatt != null) {
 			mGattCharacteristic.setValue(BluetoothUtility.stringToByte(etInput.getText().toString()));
-			if(mBtGatt.writeCharacteristic(mGattCharacteristic))
-				Log.d(TAG, "Data sent");
+			if (mBtGatt.writeCharacteristic(mGattCharacteristic))
+                Log.d(BluetoothUtility.TAG, "Data sent");
 			else
-				Log.d(TAG, "Data not sent");
+                Log.d(BluetoothUtility.TAG, "Data not sent");
     	}
     }
     
     //Check if bluetooth is enabled, if not, then request enable
     private void enableBluetooth() {
-        if(mBluetoothAdapter == null) {
-            Log.d(TAG, "Bluetooth NOT supported");
-        } else if(!mBluetoothAdapter.isEnabled()) {
+        if (mBluetoothAdapter == null) {
+            Log.e(BluetoothUtility.TAG, "Bluetooth NOT supported");
+        } else if (!mBluetoothAdapter.isEnabled()) {
             Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
             startActivityForResult(enableBtIntent, 1);
         }
@@ -189,96 +170,91 @@ public class ClientActivity extends Activity {
     /**
      * BLE Scanning
      */
-    @SuppressWarnings("deprecation")
-	@SuppressLint("NewApi")
 	public void startBleScan() {
-        if(isScanning) return;
+        if (isScanning)
+            return;
         enableBluetooth();
         isScanning = true;
         
         // Stops scanning after a pre-defined scan period.
 		mHandler.postDelayed(new Runnable() {
-			@SuppressLint("NewApi")
-			@Override
 			public void run() {
-				isScanning = false;
-				
-				mBluetoothAdapter.stopLeScan(mLeScanCallback);
-				
-				btnScan.setEnabled(true);
-	            btnStop.setEnabled(false);
+                stopBleScan();
 			}
-		}, SCAN_PERIOD);
+		}, BluetoothUtility.SCAN_PERIOD);
 		
-		mBluetoothAdapter.startLeScan(mLeScanCallback);
-		
+        mBluetoothLeScanner.startScan(new ScanCallback() {
+            @Override
+            public void onScanResult(int callbackType, ScanResult result) {
+                super.onScanResult(callbackType, result);
+                String deviceInfo = result.getScanRecord().getDeviceName();
+
+                if (mDeviceNameList == null)
+                    mDeviceNameList = new ArrayList<>();
+
+                if (mDeviceNameList.contains(deviceInfo))
+                    return;
+                mDeviceNameList.add(deviceInfo);
+                mDeviceList.add(result.getDevice());
+                Log.d(BluetoothUtility.TAG, "Device: " + deviceInfo + " Scanned!");
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        // TODO: fix
+                        centralAdapter.notifyDataSetChanged();
+                    }
+                });
+                btnConnect.setEnabled(true);
+            }
+        });
         btnScan.setEnabled(false);
         btnStop.setEnabled(true);
-        Log.d(TAG, "Bluetooth is currently scanning...");
     }
 
-    @SuppressWarnings("deprecation")
-	@SuppressLint("NewApi")
 	public void stopBleScan() {
-        if(!isScanning) return;
+        if (!isScanning)
+            return;
         isScanning = false;
         
-    	mBluetoothAdapter.stopLeScan(mLeScanCallback);
+        mBluetoothLeScanner.stopScan(new ScanCallback() {
+            @Override
+            public void onScanResult(int callbackType, ScanResult result) {
+                super.onScanResult(callbackType, result);
+            }
+        });
         
         btnScan.setEnabled(true);
         btnStop.setEnabled(false);
-        Log.d(TAG, "Scanning has been stopped");
+        Log.d(BluetoothUtility.TAG, "Scanning has been stopped");
     }
-
-    // Device scan callback for previous sdk version
- 	private BluetoothAdapter.LeScanCallback mLeScanCallback = new BluetoothAdapter.LeScanCallback() {
- 		@Override
- 		public void onLeScan(final BluetoothDevice device, final int rssi, final byte[] scanRecord) {
-        	String deviceInfo = device.getName() + " - " + device.getAddress();
-        	if(mDeviceNameList.contains(deviceInfo)) return;
-        	
-            mDeviceNameList.add(deviceInfo);
-            mDeviceList.add(device);
-            
-            Log.d(TAG, "Device: " + deviceInfo + " Scanned!");
-            runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-                    centralAdapter.notifyDataSetChanged();
-                }
-            });
-            
-            btnConnect.setEnabled(true);
-            //stop scanning after we find ble device
-//            stopBleScan();
-//            btnScan.setEnabled(true);
-//            btnStop.setEnabled(false);
-		}
- 	};
     
     private final BluetoothGattCallback mGattCallback = new BluetoothGattCallback() {
         @Override
         public void onConnectionStateChange(BluetoothGatt gatt, int status, int newState) {           
             if (newState == BluetoothProfile.STATE_CONNECTED) {
                 mConnectionState = BluetoothProfile.STATE_CONNECTED;
-                Log.i(TAG, "Connected to GATT server.");
+                Log.i(BluetoothUtility.TAG, "Connected to GATT server.");
                 
-                if(gatt != null) {
+                if (gatt != null) {
                 	mBtGatt = gatt;
-                	if(gatt.discoverServices()) Log.d(TAG, "Attempt to discover Service");
-                	else Log.d(TAG, "Failed to discover Service");
-    			} else Log.d(TAG, "btGatt == null");
-
+                    if (gatt.discoverServices()) {
+                        Log.d(BluetoothUtility.TAG, "Attempt to discover Service");
+                    } else {
+                        Log.d(BluetoothUtility.TAG, "Failed to discover Service");
+                    }
+                } else {
+                    Log.d(BluetoothUtility.TAG, "btGatt == null");
+                }
             } else if (newState == BluetoothProfile.STATE_CONNECTING) {
                 mConnectionState = BluetoothProfile.STATE_CONNECTING;
-                Log.i(TAG, "Connecting GATT server.");
+                Log.i(BluetoothUtility.TAG, "Connecting GATT server.");
             } else if (newState == BluetoothProfile.STATE_DISCONNECTED) {
                 mConnectionState = BluetoothProfile.STATE_DISCONNECTED;
-                Log.i(TAG, "Disconnected from GATT server.");
                 mBtGatt.close();
+                Log.i(BluetoothUtility.TAG, "Disconnected from GATT server.");
             } else if (newState == BluetoothProfile.STATE_DISCONNECTING) {
                 mConnectionState = BluetoothProfile.STATE_DISCONNECTING;
-                Log.i(TAG, "Disconnecting from GATT server.");
+                Log.i(BluetoothUtility.TAG, "Disconnecting from GATT server.");
             }
         }
 
@@ -286,28 +262,29 @@ public class ClientActivity extends Activity {
         // New services discovered
         public void onServicesDiscovered(BluetoothGatt gatt, int status) {
             if (status == BluetoothGatt.GATT_SUCCESS) {
-            	Log.d(TAG, "Services Discovered successfully : " + status);
+                Log.d(BluetoothUtility.TAG, "Services Discovered successfully : " + status);
             	
             	List<BluetoothGattService> gattServices = gatt.getServices();            	
             	mBtGatt = gatt;
-            	if(gattServices.size() > 0) {
-            		Log.d(TAG, "Found : " + gattServices.size() + " services");
+                if (gattServices.size() > 0) {
+            		Log.d(BluetoothUtility.TAG, "Found : " + gattServices.size() + " services");
             		for (BluetoothGattService bluetoothGattService : gattServices)
-						Log.d(TAG, "UUID = " + bluetoothGattService.getUuid().toString());
+						Log.d(BluetoothUtility.TAG, "UUID = " + bluetoothGattService.getUuid().toString());
             		
             		BluetoothGattService gattServ = gatt.getService(UUID.fromString(BluetoothUtility.SERVICE_UUID_1));
-    				if(gattServ != null) {
+                    if (gattServ != null) {
     					mGattService = gattServ;
     					BluetoothGattCharacteristic gattChar = gattServ.getCharacteristic(UUID.fromString(BluetoothUtility.CHAR_UUID_1));
     					mGattCharacteristic = gattChar;
     					gatt.readCharacteristic(gattChar);
-    				}
-    				else
-    					Log.d(TAG, "gattServ == null");
-    			} else
-					Log.d(TAG, "gattServices.size() == 0");
+    				} else {
+                        Log.d(BluetoothUtility.TAG, "gattServ == null");
+                    }
+    			} else {
+                    Log.d(BluetoothUtility.TAG, "gattServices.size() == 0");
+                }
             } else {
-                Log.w(TAG, "onServicesDiscovered received: " + status);
+                Log.w(BluetoothUtility.TAG, "onServicesDiscovered received: " + status);
             }
         }
 
@@ -315,8 +292,7 @@ public class ClientActivity extends Activity {
         // Result of a characteristic read operation
         public void onCharacteristicRead(BluetoothGatt gatt, BluetoothGattCharacteristic characteristic, int status) {
             if (status == BluetoothGatt.GATT_SUCCESS) {
-            	Log.d(TAG, "Characteristic is read");
-            	
+                Log.d(BluetoothUtility.TAG, "Characteristic is read");
             	gatt.setCharacteristicNotification(characteristic, true);
             }
         }
@@ -324,19 +300,18 @@ public class ClientActivity extends Activity {
 		@Override
 		public void onCharacteristicChanged(BluetoothGatt gatt, BluetoothGattCharacteristic characteristic) {
 			byte[] data = characteristic.getValue();
-			if(data != null) {
-				final String tmp = BluetoothUtility.byteArraytoString(data);
-				Log.d(TAG, "Changed data : " + tmp);
-				
+            if (data != null) {
+				final String tmp = BluetoothUtility.byteArrayToString(data);
+                Log.d(BluetoothUtility.TAG, "Changed data : " + tmp);
 				runOnUiThread(new Runnable() {
 					@Override
 					public void run() {
 						tvClient.setText(tmp);
 					}
 				});
-			}
-			else
-				Log.d(TAG, "Changed Data is null");
+			} else {
+                Log.d(BluetoothUtility.TAG, "Changed Data is null");
+            }
 		}
     };
 }

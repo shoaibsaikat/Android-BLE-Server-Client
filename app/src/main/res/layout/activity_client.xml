@@ -55,8 +55,8 @@
         android:id="@+id/textViewClient"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Empty"
-        android:textAppearance="?android:attr/textAppearanceLarge" >
+        android:text="No Message Yet!"
+        android:textAppearance="?android:attr/textAppearanceLarge">
 
         <requestFocus />
     </TextView>

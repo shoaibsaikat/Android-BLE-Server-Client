@@ -1,7 +1,6 @@
 package com.shoaibsaikat.ble;
 
 import android.annotation.TargetApi;
-import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothGatt;
@@ -10,28 +9,31 @@ import android.bluetooth.BluetoothGattServer;
 import android.bluetooth.BluetoothGattServerCallback;
 import android.bluetooth.BluetoothGattService;
 import android.bluetooth.BluetoothManager;
+import android.bluetooth.le.AdvertiseCallback;
+import android.bluetooth.le.AdvertiseData;
+import android.bluetooth.le.AdvertiseSettings;
+import android.bluetooth.le.BluetoothLeAdvertiser;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.ParcelUuid;
 import android.util.Log;
 import android.view.View;
-import android.bluetooth.le.*;
-import android.content.Context;
-import android.content.Intent;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
-import com.shoaibsaikat.ble.BluetoothUtility;
 
 
 @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-public class ServerActivity extends Activity {
-    private static final String TAG = "BLE";
-
+public class ServerActivity extends AppCompatActivity {
     private Button btnStopAdv;
     private Button btnAdv;
     private Button btnSendData;
@@ -86,11 +88,11 @@ public class ServerActivity extends Activity {
 
     @Override
     protected void onDestroy() {
-    	if(mAdvertisingServices != null) {
+        if (mAdvertisingServices != null) {
     		mAdvertisingServices.clear();
     		mAdvertisingServices = null;
     	}
-    	if(mServiceUuids != null) {
+        if (mServiceUuids != null) {
     		mServiceUuids.clear();
     		mServiceUuids = null;
     	}
@@ -113,19 +115,19 @@ public class ServerActivity extends Activity {
     public void handleSendClick(View view) {
     	if(isDeviceSet && writeCharacteristicToGatt(etInput.getText().toString())) {
     		Toast.makeText(ServerActivity.this, "Data written", Toast.LENGTH_SHORT).show();
-    		Log.d(TAG, "Data written from server");
+            Log.d(BluetoothUtility.TAG, "Data written from server");
     	}
     	else {
     		Toast.makeText(ServerActivity.this, "Data not written", Toast.LENGTH_SHORT).show();
-    		Log.d(TAG, "Data not written");
+            Log.d(BluetoothUtility.TAG, "Data not written");
     	}
     }
 
     //Check if bluetooth is enabled, if not, then request enable
     private void enableBluetooth() {
-        if(mBluetoothAdapter == null) {
-            Log.d(TAG, "Bluetooth NOT supported");
-        } else if(!mBluetoothAdapter.isEnabled()) {
+        if (mBluetoothAdapter == null) {
+            Log.d(BluetoothUtility.TAG, "Bluetooth NOT supported");
+        } else if (!mBluetoothAdapter.isEnabled()) {
             Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
             startActivityForResult(enableBtIntent, 1);
         }
@@ -133,15 +135,16 @@ public class ServerActivity extends Activity {
     
     private void startGattServer() {
         mGattServer = mBluetoothManager.openGattServer(getApplicationContext(), gattServerCallback);
-        for(int i = 0; i < mAdvertisingServices.size(); i++) {
+        for (int i = 0; i < mAdvertisingServices.size(); i++) {
             mGattServer.addService(mAdvertisingServices.get(i));
-            Log.d(TAG, "uuid" + mAdvertisingServices.get(i).getUuid());
+            Log.d(BluetoothUtility.TAG, "uuid" + mAdvertisingServices.get(i).getUuid());
         }
     }
     
     //Public method to begin advertising services
     public void startAdvertise() {
-        if(isAdvertising) return;
+        if (isAdvertising)
+            return;
         enableBluetooth();
         startGattServer();
 
@@ -162,7 +165,8 @@ public class ServerActivity extends Activity {
 
     //Stop ble advertising and clean up
     public void stopAdvertise() {
-        if(!isAdvertising) return;
+        if (!isAdvertising)
+            return;
         mBluetoothLeAdvertiser.stopAdvertising(advertiseCallback);
         mGattServer.clearServices();
         mGattServer.close();
@@ -174,39 +178,39 @@ public class ServerActivity extends Activity {
     	final BluetoothGattService service = mGattServer.getService(UUID.fromString(BluetoothUtility.SERVICE_UUID_1));
     	final BluetoothGattCharacteristic characteristic = service.getCharacteristic(UUID.fromString(BluetoothUtility.CHAR_UUID_1));
 
-    	if(mConnectedDevice != null && characteristic.setValue(data)) {
+        if (mConnectedDevice != null && characteristic.setValue(data)) {
     		mGattServer.notifyCharacteristicChanged(mConnectedDevice, characteristic, true);
     		return true;
-    	}
-    	else
-    		return false;
+    	} else {
+            return false;
+        }
     }
 
     private AdvertiseCallback advertiseCallback = new AdvertiseCallback() {
     	@Override
         public void onStartSuccess(AdvertiseSettings advertiseSettings) {
             String successMsg = "Advertisement command attempt successful";
-            Log.d(TAG, successMsg);
+            Log.d(BluetoothUtility.TAG, successMsg);
         }
 
     	@Override
         public void onStartFailure(int i) {
             String failMsg = "Advertisement command attempt failed: " + i;
-            Log.e(TAG, failMsg);
+            Log.e(BluetoothUtility.TAG, failMsg);
         }
     };
 
     public BluetoothGattServerCallback gattServerCallback = new BluetoothGattServerCallback() {
         @Override
         public void onConnectionStateChange(BluetoothDevice device, int status, int newState) {
-            Log.d(TAG, "onConnectionStateChange status=" + status + "->" + newState);
+            Log.d(BluetoothUtility.TAG, "onConnectionStateChange status=" + status + "->" + newState);
             mConnectedDevice = device;
             isDeviceSet = true;
         }
 
         @Override
         public void onServiceAdded(int status, BluetoothGattService service) {
-        	Log.d(TAG, "service added: " + status);
+            Log.d(BluetoothUtility.TAG, "service added: " + status);
         }
 
         @Override
@@ -216,7 +220,7 @@ public class ServerActivity extends Activity {
         		int offset,
         		BluetoothGattCharacteristic characteristic
         ) {
-            Log.d(TAG, "onCharacteristicReadRequest requestId=" + requestId + " offset=" + offset);
+            Log.d(BluetoothUtility.TAG, "onCharacteristicReadRequest requestId=" + requestId + " offset=" + offset);
 
             if (characteristic.getUuid().equals(UUID.fromString(BluetoothUtility.CHAR_UUID_1))) {
                 characteristic.setValue("test");
@@ -234,12 +238,11 @@ public class ServerActivity extends Activity {
         		int offset,
         		byte[] value
         ) {
-            if(value != null) {
-            	Log.d(TAG, "Data written: " + BluetoothUtility.byteArraytoString(value));
-            	
-            	final String tmp = BluetoothUtility.byteArraytoString(value);
+            if (value != null) {
+                Log.d(BluetoothUtility.TAG, "Data written: " + BluetoothUtility.byteArrayToString(value));
+
+                final String tmp = BluetoothUtility.byteArrayToString(value);
             	runOnUiThread(new Runnable() {
-					
 					@Override
 					public void run() {
 						tvServer.setText(tmp);	
@@ -247,9 +250,9 @@ public class ServerActivity extends Activity {
 				});
             	
             	mGattServer.sendResponse(device, requestId, BluetoothGatt.GATT_SUCCESS, offset, value);
+            } else {
+                Log.d(BluetoothUtility.TAG, "value is null");
             }
-            else
-            	Log.d(TAG, "value is null");
         }
     };
 }
