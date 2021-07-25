@@ -12,3 +12,8 @@ Step:
 	ii. Cick "Scan for Devices".
 	iii. You will see the server name on dropdown list. Select the appropriate device.
 6. Now type text you want to send from both client and server and click "Send". Message should arrive on opposite device.
+
+
+NOTE:
+i. Sometimes its takes several scan to find device.
+ii. We're also getting BluetoothGattService as null, as a result client can't connect. Need to check why.

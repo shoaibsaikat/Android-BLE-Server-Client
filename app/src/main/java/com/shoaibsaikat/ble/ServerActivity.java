@@ -63,7 +63,6 @@ public class ServerActivity extends AppCompatActivity {
         btnStopAdv = findViewById(R.id.buttonAdvStop);
         tvServer = findViewById(R.id.textViewServer);
         etInput = findViewById(R.id.editTextInputServer);
-        etInput.setText("Server");
 
         //adding service and characteristics
         BluetoothGattService firstService = new BluetoothGattService(UUID.fromString(BluetoothUtility.SERVICE_UUID_1), BluetoothGattService.SERVICE_TYPE_PRIMARY);
@@ -125,6 +124,8 @@ public class ServerActivity extends AppCompatActivity {
     }
     
     private void startGattServer() {
+        if (mGattServer == null)
+            return;
         mGattServer = mBluetoothManager.openGattServer(getApplicationContext(), gattServerCallback);
         for (int i = 0; i < mAdvertisingServices.size(); i++) {
             mGattServer.addService(mAdvertisingServices.get(i));
@@ -159,9 +160,12 @@ public class ServerActivity extends AppCompatActivity {
         if (!isAdvertising)
             return;
         mBluetoothLeAdvertiser.stopAdvertising(advertiseCallback);
-        mGattServer.clearServices();
-        mGattServer.close();
-        mAdvertisingServices.clear();
+        if (mGattServer != null) {
+            mGattServer.clearServices();
+            mGattServer.close();
+        }
+        if (mAdvertisingServices != null)
+            mAdvertisingServices.clear();
         isAdvertising = false;
     }
     
@@ -232,11 +236,11 @@ public class ServerActivity extends AppCompatActivity {
             if (value != null) {
                 Log.d(BluetoothUtility.TAG, "Data written: " + BluetoothUtility.byteArrayToString(value));
 
-                final String tmp = BluetoothUtility.byteArrayToString(value);
+                final String message = BluetoothUtility.byteArrayToString(value);
             	runOnUiThread(new Runnable() {
 					@Override
 					public void run() {
-						tvServer.setText(tmp);	
+						tvServer.setText(message);
 					}
 				});
             	

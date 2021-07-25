@@ -75,7 +75,6 @@ public class ClientActivity extends AppCompatActivity {
         etInput = findViewById(R.id.editTextInputClient);
         tvClient = findViewById(R.id.textViewClient);
 
-        etInput.setText("Client");
         btnConnect.setEnabled(false);
         
         mDeviceNameList = new ArrayList<String>();
@@ -269,10 +268,29 @@ public class ClientActivity extends AppCompatActivity {
                     if (gattServ != null) {
     					mGattService = gattServ;
     					BluetoothGattCharacteristic gattChar = gattServ.getCharacteristic(UUID.fromString(BluetoothUtility.CHAR_UUID_1));
-    					mGattCharacteristic = gattChar;
-    					gatt.readCharacteristic(gattChar);
+    					if (gattChar != null) {
+                            mGattCharacteristic = gattChar;
+                            gatt.readCharacteristic(gattChar);
+                        } else {
+                            runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    Toast.makeText(ClientActivity.this, "getCharacteristic is null", Toast.LENGTH_SHORT).show();
+                                    btnConnect.setEnabled(false);
+                                }
+                            });
+                            Log.e(BluetoothUtility.TAG, "getCharacteristic == null");
+                        }
+
     				} else {
-                        Log.d(BluetoothUtility.TAG, "gattServ == null");
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                Toast.makeText(ClientActivity.this, "BluetoothGattService is null", Toast.LENGTH_SHORT).show();
+                                btnConnect.setEnabled(false);
+                            }
+                        });
+                        Log.e(BluetoothUtility.TAG, "gattServ == null");
                     }
     			} else {
                     Log.d(BluetoothUtility.TAG, "gattServices.size() == 0");
