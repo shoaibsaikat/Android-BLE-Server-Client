@@ -15,5 +15,5 @@ Step:
 
 
 NOTE:
-i. Sometimes its takes several scan to find device.
+i. Sometimes it takes several scan to find device.
 ii. We're also getting BluetoothGattService as null, as a result client can't connect. Need to check why.
