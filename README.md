@@ -3,7 +3,7 @@ A Simple BLE server client both on Android Phone side.
 
 Step:
 
-Befor runnig app:
+Before runnig app:
 1. Turn on Bluetooth, on both devices and also give app location permission by going to settings.
 2. Pair both devices.
 
