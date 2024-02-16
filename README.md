@@ -8,10 +8,10 @@ Give app all permissions by going to settings. Permission asking from app is not
 
 # How to use the app:
 1. Run two instances of this app in two devices, one for server and another for client.
-	a. For Server:
+	1. For Server:
 		i. Click "Server".
 		ii. Click "Start Advertising".
-	b. For Client:
+	2. For Client:
 		i. Click "Client".
 		ii. Click "Scan for Devices".
 		iii. You will see the server name on dropdown list. Select the appropriate device.
