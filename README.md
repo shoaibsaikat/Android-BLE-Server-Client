@@ -4,7 +4,7 @@ A Simple BLE server and client for Android Phone.
 # Steps:
 
 # Before running app:
-Give app all permissions by going to settings. Permission asking from app is implemented. App will crash if permission is not given.
+Give app all permissions by going to settings. Permission asking from app is not implemented. App will crash if permission is not given.
 
 # How to use the app:
 1. Run two instances of this app in two devices, one for server and other for client.
