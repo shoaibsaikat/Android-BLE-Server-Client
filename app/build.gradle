@@ -3,7 +3,9 @@ apply plugin: 'com.android.application'
 android {
     defaultConfig {
         applicationId "com.shoaibsaikat.ble"
-        minSdk 30
+        minSdk 26
+        signingConfig signingConfigs.debug
+        targetSdk 34
     }
 
     buildTypes {

@@ -39,7 +39,8 @@ public class BluetoothUtility {
 	public static boolean isBluetoothPermitted(Context context) {
 		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
 			return ActivityCompat.checkSelfPermission(context, android.Manifest.permission.BLUETOOTH_CONNECT) == PackageManager.PERMISSION_GRANTED;
+		} else {
+			return ActivityCompat.checkSelfPermission(context, android.Manifest.permission.BLUETOOTH) == PackageManager.PERMISSION_GRANTED;
 		}
-		return true;
 	}
 }
