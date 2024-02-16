@@ -14,7 +14,6 @@ import android.bluetooth.le.AdvertiseData;
 import android.bluetooth.le.AdvertiseSettings;
 import android.bluetooth.le.BluetoothLeAdvertiser;
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.ParcelUuid;
 import android.util.Log;
@@ -64,14 +63,13 @@ public class ServerActivity extends AppCompatActivity {
         mTvServer = findViewById(R.id.textViewServer);
         mEtInput = findViewById(R.id.editTextInputServer);
 
-        //adding service and characteristics
+//      adding service and characteristics
         BluetoothGattService gattService = new BluetoothGattService(UUID.fromString(BluetoothUtility.SERVICE_UUID_1), BluetoothGattService.SERVICE_TYPE_PRIMARY);
-        BluetoothGattCharacteristic gattServiceChar = new BluetoothGattCharacteristic(
+        gattService.addCharacteristic(new BluetoothGattCharacteristic(
                 UUID.fromString(BluetoothUtility.CHAR_UUID_1),
                 BluetoothGattCharacteristic.PROPERTY_READ | BluetoothGattCharacteristic.PROPERTY_WRITE,
                 BluetoothGattCharacteristic.PERMISSION_READ | BluetoothGattCharacteristic.PERMISSION_WRITE
-        );
-        gattService.addCharacteristic(gattServiceChar);
+        ));
 
         mAdvertisingServices.add(gattService);
         mServiceUuids.add(new ParcelUuid(gattService.getUuid()));
@@ -105,25 +103,21 @@ public class ServerActivity extends AppCompatActivity {
 
     public void handleSendClick(View view) {
     	if (mIsDeviceSet && writeCharacteristicToGatt(mEtInput.getText().toString())) {
-    		Toast.makeText(ServerActivity.this, "Data written", Toast.LENGTH_SHORT).show();
-            Log.d(BluetoothUtility.TAG, "Data written from server");
+    		Toast.makeText(ServerActivity.this, "Data is written", Toast.LENGTH_SHORT).show();
     	} else {
-    		Toast.makeText(ServerActivity.this, "Data not written", Toast.LENGTH_SHORT).show();
-            Log.d(BluetoothUtility.TAG, "Data not written");
+    		Toast.makeText(ServerActivity.this, "Data is not written", Toast.LENGTH_SHORT).show();
     	}
     }
 
     private void startGattServer() {
-        if (mGattServer == null)
-            return;
         mGattServer = mBluetoothManager.openGattServer(getApplicationContext(), gattServerCallback);
         for (int i = 0; i < mAdvertisingServices.size(); i++) {
             mGattServer.addService(mAdvertisingServices.get(i));
-            Log.d(BluetoothUtility.TAG, "uuid" + mAdvertisingServices.get(i).getUuid());
+            Log.d(BluetoothUtility.TAG, "adding gatt services" + mAdvertisingServices.get(i).getUuid());
         }
     }
     
-    //Public method to begin advertising services
+//  public method to begin advertising services
     public void startAdvertise() {
         if (mIsAdvertising)
             return;
@@ -132,10 +126,12 @@ public class ServerActivity extends AppCompatActivity {
         AdvertiseData.Builder dataBuilder = new AdvertiseData.Builder();
         AdvertiseSettings.Builder settingsBuilder = new AdvertiseSettings.Builder();
 
-        dataBuilder.setIncludeTxPowerLevel(false); //necessity to fit in 31 byte advertisement
+        dataBuilder.setIncludeTxPowerLevel(false); // necessary to fit in 31 byte advertisement
         dataBuilder.setIncludeDeviceName(true);
-        for (ParcelUuid serviceUuid : mServiceUuids)
-        	dataBuilder.addServiceUuid(serviceUuid);
+        for (ParcelUuid serviceUuid : mServiceUuids) {
+            Log.d(BluetoothUtility.TAG, "adding uuids: " + serviceUuid);
+            dataBuilder.addServiceUuid(serviceUuid);
+        }
 
         settingsBuilder.setAdvertiseMode(AdvertiseSettings.ADVERTISE_MODE_BALANCED);
         settingsBuilder.setTxPowerLevel(AdvertiseSettings.ADVERTISE_TX_POWER_HIGH);
@@ -144,7 +140,7 @@ public class ServerActivity extends AppCompatActivity {
         mIsAdvertising = true;
     }
 
-    //Stop ble advertising and clean up
+//  stop ble advertising and clean up
     public void stopAdvertise() {
         if (!mIsAdvertising)
             return;
@@ -161,7 +157,6 @@ public class ServerActivity extends AppCompatActivity {
     public boolean writeCharacteristicToGatt(String data) {
     	final BluetoothGattService service = mGattServer.getService(UUID.fromString(BluetoothUtility.SERVICE_UUID_1));
     	final BluetoothGattCharacteristic characteristic = service.getCharacteristic(UUID.fromString(BluetoothUtility.CHAR_UUID_1));
-
         if (mConnectedDevice != null && characteristic.setValue(data)) {
     		mGattServer.notifyCharacteristicChanged(mConnectedDevice, characteristic, true);
     		return true;
@@ -173,13 +168,13 @@ public class ServerActivity extends AppCompatActivity {
     private final AdvertiseCallback advertiseCallback = new AdvertiseCallback() {
     	@Override
         public void onStartSuccess(AdvertiseSettings advertiseSettings) {
-            String successMsg = "Advertisement command attempt successful";
+            String successMsg = "advertisement command attempt successful";
             Log.d(BluetoothUtility.TAG, successMsg);
         }
 
     	@Override
         public void onStartFailure(int i) {
-            String failMsg = "Advertisement command attempt failed: " + i;
+            String failMsg = "advertisement command attempt failed: " + i;
             Log.e(BluetoothUtility.TAG, failMsg);
         }
     };
@@ -198,16 +193,10 @@ public class ServerActivity extends AppCompatActivity {
         }
 
         @Override
-        public void onCharacteristicReadRequest(
-        		BluetoothDevice device,
-        		int requestId,
-        		int offset,
-        		BluetoothGattCharacteristic characteristic
-        ) {
+        public void onCharacteristicReadRequest(BluetoothDevice device, int requestId, int offset, BluetoothGattCharacteristic characteristic) {
             Log.d(BluetoothUtility.TAG, "onCharacteristicReadRequest requestId=" + requestId + " offset=" + offset);
-
             if (characteristic.getUuid().equals(UUID.fromString(BluetoothUtility.CHAR_UUID_1))) {
-                characteristic.setValue("test");
+                characteristic.setValue(BluetoothUtility.CHAR_VALUE);
                 mGattServer.sendResponse(device, requestId, BluetoothGatt.GATT_SUCCESS, offset, characteristic.getValue());
             }
         }
@@ -223,8 +212,6 @@ public class ServerActivity extends AppCompatActivity {
         		byte[] value
         ) {
             if (value != null) {
-                Log.d(BluetoothUtility.TAG, "Data written: " + BluetoothUtility.byteArrayToString(value));
-
                 final String message = BluetoothUtility.byteArrayToString(value);
             	runOnUiThread(new Runnable() {
 					@Override
@@ -232,10 +219,10 @@ public class ServerActivity extends AppCompatActivity {
 						mTvServer.setText(message);
 					}
 				});
-            	
             	mGattServer.sendResponse(device, requestId, BluetoothGatt.GATT_SUCCESS, offset, value);
+                Log.d(BluetoothUtility.TAG, "data written: " + BluetoothUtility.byteArrayToString(value));
             } else {
-                Log.d(BluetoothUtility.TAG, "value is null");
+                Log.e(BluetoothUtility.TAG, "data is null");
             }
         }
     };

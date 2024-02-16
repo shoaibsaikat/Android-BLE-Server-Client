@@ -13,6 +13,7 @@ public class BluetoothUtility {
 
 	public static final String SERVICE_UUID_1 = "00001802-0000-1000-8000-00805f9b34fb";
 	public static final String CHAR_UUID_1 = "afdf39cc-e249-4397-b342-295408ac33bc";
+	public static final String CHAR_VALUE = "test value";
 
 	public final static int SCAN_PERIOD = 2000;
 
