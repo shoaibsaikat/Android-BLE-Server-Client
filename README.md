@@ -1,13 +1,12 @@
-A Simple BLE server and client both can be implementable on Android Phone.
+A Simple BLE server and client for Android Phone.
 [It's a demo app for learning purpose only, not ready for commercial use. Use it on your own risk!]
 
 # Steps:
 
 # Before running app:
-1. Turn on Bluetooth, on both devices and also give app location permission by going to settings.
-2. Pair both devices.
+Give app all permissions by going to settings. Permission asking from app is implemented. App will crash if permission is not given.
 
-# App:
+# How to use the app:
 1. Run two instances of this app in two devices, one for server and other for client.
 2. For Server:
 	i. Click "Server".
@@ -19,6 +18,6 @@ A Simple BLE server and client both can be implementable on Android Phone.
 4. Now type the text you want to send from both client and server and click "Send". Message should arrive on the opposite device.
 
 
-# NOTE:
-i. Sometimes it takes several scan to find device.
-ii. We're also getting BluetoothGattService as null, as a result client can't connect. Need to check why.
+# Issues:
+1. Sometimes it takes several scan to find the server.
+2. We're getting BluetoothGattService null, if devices are connected multiple times (need to check why). For now to fix this, when done with the app turn off bluetooth on both devices. We can also implement turn off / on bluetooth from app before start advertising and scanning to bypass the issue.

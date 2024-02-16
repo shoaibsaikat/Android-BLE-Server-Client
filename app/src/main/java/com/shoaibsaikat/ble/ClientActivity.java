@@ -39,6 +39,7 @@ public class ClientActivity extends AppCompatActivity {
     private Button mBtnScan;
     private Button mBtnStop;
     private Button mBtnConnect;
+    private Button mBtnSend;
     private EditText mEtInput;
     private TextView mTvClient;
     private Spinner mSpnCentralList;
@@ -77,11 +78,13 @@ public class ClientActivity extends AppCompatActivity {
         mBtnScan = findViewById(R.id.buttonScan);
         mBtnStop = findViewById(R.id.buttonStopScan);
         mBtnConnect = findViewById(R.id.buttonConnect);
+        mBtnSend = findViewById(R.id.buttonSendClient);
         mSpnCentralList = findViewById(R.id.spinnerCentralList);
         mEtInput = findViewById(R.id.editTextInputClient);
         mTvClient = findViewById(R.id.textViewClient);
 
         mBtnConnect.setEnabled(false);
+        mBtnSend.setEnabled(false);
         
         mDeviceNameList = new ArrayList<String>();
         centralAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, mDeviceNameList);
@@ -104,11 +107,10 @@ public class ClientActivity extends AppCompatActivity {
     }
 
     public void handleScanStart(View view) {
-        mBtnConnect.setEnabled(false);
-        
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
+                mBtnConnect.setEnabled(false);
             	centralAdapter.clear();
             	centralAdapter.notifyDataSetChanged();
             }
@@ -202,10 +204,10 @@ public class ClientActivity extends AppCompatActivity {
                     @Override
                     public void run() {
                         // TODO: fix
+                        mBtnConnect.setEnabled(true);
                         centralAdapter.notifyDataSetChanged();
                     }
                 });
-                mBtnConnect.setEnabled(true);
             }
         }
     };
@@ -215,17 +217,18 @@ public class ClientActivity extends AppCompatActivity {
         public void onConnectionStateChange(BluetoothGatt gatt, int status, int newState) {
             if (newState == BluetoothProfile.STATE_CONNECTED) {
                 mConnectionState = BluetoothProfile.STATE_CONNECTED;
-                Log.i(BluetoothUtility.TAG, "connected to gatt server.");
 
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        Toast.makeText(ClientActivity.this, "Connected", Toast.LENGTH_SHORT).show();
-                        mBtnConnect.setEnabled(false);
-                    }
-                });
-                
                 if (gatt != null) {
+                    Log.i(BluetoothUtility.TAG, "connected to gatt server.");
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            Toast.makeText(ClientActivity.this, "Connected", Toast.LENGTH_SHORT).show();
+                            mBtnSend.setEnabled(true);
+                            mBtnConnect.setEnabled(false);
+                        }
+                    });
+
                 	mBtGatt = gatt;
                     if (gatt.discoverServices()) {
                         Log.d(BluetoothUtility.TAG, "attempt to discover Service");
@@ -233,6 +236,7 @@ public class ClientActivity extends AppCompatActivity {
                         Log.d(BluetoothUtility.TAG, "failed to discover Service");
                     }
                 } else {
+                    Toast.makeText(ClientActivity.this, "Invalid server", Toast.LENGTH_SHORT).show();
                     Log.d(BluetoothUtility.TAG, "btGatt == null");
                 }
             } else if (newState == BluetoothProfile.STATE_CONNECTING) {
@@ -246,6 +250,7 @@ public class ClientActivity extends AppCompatActivity {
                     public void run() {
                         Toast.makeText(ClientActivity.this, "Disconnected", Toast.LENGTH_SHORT).show();
                         mBtnConnect.setEnabled(true);
+                        mBtnSend.setEnabled(false);
                     }
                 });
                 Log.i(BluetoothUtility.TAG, "disconnected from gatt server.");
@@ -280,6 +285,7 @@ public class ClientActivity extends AppCompatActivity {
                                 @Override
                                 public void run() {
                                     Toast.makeText(ClientActivity.this, "getCharacteristic is null", Toast.LENGTH_SHORT).show();
+                                    mBtnSend.setEnabled(true);
                                     mBtnConnect.setEnabled(false);
                                 }
                             });
@@ -291,6 +297,7 @@ public class ClientActivity extends AppCompatActivity {
                             @Override
                             public void run() {
                                 Toast.makeText(ClientActivity.this, "BluetoothGattService is null", Toast.LENGTH_SHORT).show();
+                                mBtnSend.setEnabled(false);
                                 mBtnConnect.setEnabled(false);
                             }
                         });
@@ -309,7 +316,7 @@ public class ClientActivity extends AppCompatActivity {
         public void onCharacteristicRead(BluetoothGatt gatt, BluetoothGattCharacteristic characteristic, int status) {
             if (status == BluetoothGatt.GATT_SUCCESS) {
                 Log.d(BluetoothUtility.TAG, "characteristic is read");
-            	gatt.setCharacteristicNotification(characteristic, true);
+                gatt.setCharacteristicNotification(characteristic, true);
             }
         }
 
