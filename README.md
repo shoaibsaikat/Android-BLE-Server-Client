@@ -9,12 +9,12 @@ Give app all permissions by going to settings. Permission asking from app is not
 # How to use the app:
 1. Run two instances of this app in two devices, one for server and another for client.
 	1. For Server:
-		i. Click "Server".
-		ii. Click "Start Advertising".
+		1. Click "Server".
+		2. Click "Start Advertising".
 	2. For Client:
-		i. Click "Client".
-		ii. Click "Scan for Devices".
-		iii. You will see the server name on dropdown list. Select the appropriate device.
+		1. Click "Client".
+		2. Click "Scan for Devices".
+		3. You will see the server name on dropdown list. Select the appropriate device.
 2. Now type the text you want to send from both client and server and click "Send". Message should arrive on the opposite device.
 
 
