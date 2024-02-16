@@ -1,9 +1,12 @@
 package com.shoaibsaikat.ble;
 
-import java.io.UnsupportedEncodingException;
 import java.nio.charset.StandardCharsets;
 
+import android.content.Context;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.util.Log;
+import androidx.core.app.ActivityCompat;
 
 public class BluetoothUtility {
 	public static final String TAG = "BLE";
@@ -31,5 +34,12 @@ public class BluetoothUtility {
 			Log.e(TAG,"stringToByte exception: " + e.getMessage());
 		}
 		return null;
+	}
+
+	public static boolean isBluetoothPermitted(Context context) {
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+			return ActivityCompat.checkSelfPermission(context, android.Manifest.permission.BLUETOOTH_CONNECT) == PackageManager.PERMISSION_GRANTED;
+		}
+		return true;
 	}
 }

@@ -4,21 +4,20 @@ import android.annotation.SuppressLint;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothManager;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
 
+@SuppressLint("MissingPermission")
 public class MainActivity extends AppCompatActivity implements OnClickListener {
 
 	private static final int REQUEST_ENABLE_BT = 0;
 	Button mBtnServer, mBtnClient;
-	private static final String TAG = "BLE";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -33,16 +32,20 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
 
 		BluetoothManager bluetoothManager = getSystemService(BluetoothManager.class);
 		BluetoothAdapter bluetoothAdapter = bluetoothManager.getAdapter();
+
 		if (bluetoothAdapter == null) {
 			finish();
 		} else {
+//			Permission is only checked once, can be checked in other activities for better experience
+			if (!BluetoothUtility.isBluetoothPermitted(this)) {
+				Toast.makeText(this, "Bluetooth not permitted", Toast.LENGTH_SHORT).show();
+				finish();
+			}
+
+//			Check if bluetooth is enabled, if not, then request enable
 			if (!bluetoothAdapter.isEnabled()) {
-				if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.BLUETOOTH_CONNECT) != PackageManager.PERMISSION_GRANTED) {
-					finish();
-				} else {
-					Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
-					startActivityForResult(enableBtIntent, REQUEST_ENABLE_BT);
-				}
+				Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
+				startActivityForResult(enableBtIntent, REQUEST_ENABLE_BT);
 			}
 		}
 	}

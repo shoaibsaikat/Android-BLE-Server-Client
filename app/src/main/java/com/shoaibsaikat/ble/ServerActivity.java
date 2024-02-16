@@ -1,5 +1,6 @@
 package com.shoaibsaikat.ble;
 
+import android.annotation.SuppressLint;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothGatt;
@@ -28,29 +29,30 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.util.ArrayList;
 import java.util.UUID;
 
+@SuppressLint("MissingPermission")
 public class ServerActivity extends AppCompatActivity {
     private Button mBtnStopAdv;
     private Button mBtnAdv;
     private EditText mEtInput;
     private TextView mTvServer;
-    
+
     private BluetoothGattServer mGattServer;
     private BluetoothManager mBluetoothManager;
     private BluetoothAdapter mBluetoothAdapter;
     private BluetoothLeAdvertiser mBluetoothLeAdvertiser;
     private BluetoothDevice mConnectedDevice;
-    
+
     private boolean mIsAdvertising = false;
     private boolean mIsDeviceSet = false;
-    
+
     private ArrayList<BluetoothGattService> mAdvertisingServices;
     private ArrayList<ParcelUuid> mServiceUuids;
-    
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_server);
-        
+
         mBluetoothManager = (BluetoothManager) getApplicationContext().getSystemService(Context.BLUETOOTH_SERVICE);
         mBluetoothAdapter = mBluetoothManager.getAdapter();
         mBluetoothLeAdvertiser = mBluetoothAdapter.getBluetoothLeAdvertiser();
@@ -70,7 +72,7 @@ public class ServerActivity extends AppCompatActivity {
                 BluetoothGattCharacteristic.PERMISSION_READ | BluetoothGattCharacteristic.PERMISSION_WRITE
         );
         gattService.addCharacteristic(gattServiceChar);
-        
+
         mAdvertisingServices.add(gattService);
         mServiceUuids.add(new ParcelUuid(gattService.getUuid()));
     }
@@ -100,7 +102,7 @@ public class ServerActivity extends AppCompatActivity {
         mBtnAdv.setEnabled(true);
         mBtnStopAdv.setEnabled(false);
     }
-    
+
     public void handleSendClick(View view) {
     	if (mIsDeviceSet && writeCharacteristicToGatt(mEtInput.getText().toString())) {
     		Toast.makeText(ServerActivity.this, "Data written", Toast.LENGTH_SHORT).show();
@@ -111,16 +113,6 @@ public class ServerActivity extends AppCompatActivity {
     	}
     }
 
-    //Check if bluetooth is enabled, if not, then request enable
-    private void enableBluetooth() {
-        if (mBluetoothAdapter == null) {
-            Log.d(BluetoothUtility.TAG, "Bluetooth NOT supported");
-        } else if (!mBluetoothAdapter.isEnabled()) {
-            Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
-            startActivityForResult(enableBtIntent, 1);
-        }
-    }
-    
     private void startGattServer() {
         if (mGattServer == null)
             return;
@@ -135,7 +127,6 @@ public class ServerActivity extends AppCompatActivity {
     public void startAdvertise() {
         if (mIsAdvertising)
             return;
-        enableBluetooth();
         startGattServer();
 
         AdvertiseData.Builder dataBuilder = new AdvertiseData.Builder();
