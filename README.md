@@ -1,4 +1,4 @@
-# A Simple BLE server and client for Android Phone.
+# A Simple "Bluetooth Low Energy" server and client for Android Phone.
 [It's a demo app for learning purpose only, not ready for commercial use. Use it on your own risk!]
 
 # Steps:
