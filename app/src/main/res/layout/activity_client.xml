@@ -1,14 +1,16 @@
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/linearLayout3"
+    android:theme="@style/Theme.AppCompat.DayNight"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ClientActivity">
 
     <Button
         android:id="@+id/buttonScan"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:enabled="true"
@@ -20,7 +22,7 @@
 
     <Button
         android:id="@+id/buttonStopScan"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:enabled="false"
         android:onClick="handleScanStop"
@@ -31,11 +33,11 @@
 
     <Button
         android:id="@+id/buttonConnect"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:onClick="handleConnect"
-        android:text="Connect"
+        android:text="@string/connect"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -43,11 +45,12 @@
 
     <EditText
         android:id="@+id/editTextInputClient"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="88dp"
         android:ems="10"
-        android:hint="Type Message"
+        android:hint="@string/type_message"
+        android:inputType="text"
+        android:textColor="#009688"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -55,11 +58,11 @@
 
     <Button
         android:id="@+id/buttonSendClient"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:onClick="handleSend"
-        android:text="Send"
+        android:text="@string/send"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -67,9 +70,8 @@
 
     <Spinner
         android:id="@+id/spinnerCentralList"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="36dp"
-        android:layout_marginTop="68dp"
         android:textColor="#000000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -78,14 +80,16 @@
 
     <TextView
         android:id="@+id/textViewClient"
-        android:layout_width="379dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="108dp"
-        android:text="No Message Yet!"
+        android:text="@string/no_message_yet"
         android:textAppearance="?android:attr/textAppearanceLarge"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonSendClient">
+        app:layout_constraintTop_toBottomOf="@+id/buttonSendClient"
+        app:layout_constraintVertical_bias="0.0">
 
         <requestFocus
             android:layout_width="wrap_content"

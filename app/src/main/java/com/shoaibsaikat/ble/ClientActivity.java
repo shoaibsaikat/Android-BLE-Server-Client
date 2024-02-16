@@ -18,6 +18,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -60,6 +61,11 @@ public class ClientActivity extends AppCompatActivity {
 	@Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        if (getSupportActionBar() != null)
+            getSupportActionBar().hide();
+
         setContentView(R.layout.activity_client);
         
         mIsScanning = false;
@@ -91,8 +97,9 @@ public class ClientActivity extends AppCompatActivity {
         if (mDeviceNameList != null) {
     		mDeviceNameList.clear();
     	}
-		if (mBtGatt != null)
-			mBtGatt.close();
+		if (mBtGatt != null) {
+            mBtGatt.close();
+        }
         super.onDestroy();
     }
 

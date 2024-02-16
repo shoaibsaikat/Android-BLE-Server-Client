@@ -8,4 +8,10 @@
     <string name="scan_text">Scan for Devices</string>
     <string name="scan_stop_text">Stop Scanning</string>
     <string name="action_settings">Settings</string>
+    <string name="send">Send</string>
+    <string name="type_message">Type Message</string>
+    <string name="no_message_yet">No Message Yet!</string>
+    <string name="server">Server</string>
+    <string name="client">Client</string>
+    <string name="connect">Connect</string>
 </resources>

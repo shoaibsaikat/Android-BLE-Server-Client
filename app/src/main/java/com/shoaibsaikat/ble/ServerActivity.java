@@ -18,6 +18,7 @@ import android.os.Bundle;
 import android.os.ParcelUuid;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -37,7 +38,6 @@ public class ServerActivity extends AppCompatActivity {
 
     private BluetoothGattServer mGattServer;
     private BluetoothManager mBluetoothManager;
-    private BluetoothAdapter mBluetoothAdapter;
     private BluetoothLeAdvertiser mBluetoothLeAdvertiser;
     private BluetoothDevice mConnectedDevice;
 
@@ -50,11 +50,16 @@ public class ServerActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        if (getSupportActionBar() != null)
+            getSupportActionBar().hide();
+
         setContentView(R.layout.activity_server);
 
         mBluetoothManager = (BluetoothManager) getApplicationContext().getSystemService(Context.BLUETOOTH_SERVICE);
-        mBluetoothAdapter = mBluetoothManager.getAdapter();
-        mBluetoothLeAdvertiser = mBluetoothAdapter.getBluetoothLeAdvertiser();
+        BluetoothAdapter bluetoothAdapter = mBluetoothManager.getAdapter();
+        mBluetoothLeAdvertiser = bluetoothAdapter.getBluetoothLeAdvertiser();
         mAdvertisingServices = new ArrayList<>();
         mServiceUuids = new ArrayList<>();
 
@@ -179,7 +184,7 @@ public class ServerActivity extends AppCompatActivity {
         }
     };
 
-    public BluetoothGattServerCallback gattServerCallback = new BluetoothGattServerCallback() {
+    public final BluetoothGattServerCallback gattServerCallback = new BluetoothGattServerCallback() {
         @Override
         public void onConnectionStateChange(BluetoothDevice device, int status, int newState) {
             Log.d(BluetoothUtility.TAG, "onConnectionStateChange status=" + status + "->" + newState);
@@ -203,23 +208,23 @@ public class ServerActivity extends AppCompatActivity {
 
         @Override
         public void onCharacteristicWriteRequest(
-        		BluetoothDevice device,
-        		int requestId,
-        		BluetoothGattCharacteristic characteristic,
-        		boolean preparedWrite,
-        		boolean responseNeeded,
-        		int offset,
-        		byte[] value
+                BluetoothDevice device,
+                int requestId,
+                BluetoothGattCharacteristic characteristic,
+                boolean preparedWrite,
+                boolean responseNeeded,
+                int offset,
+                byte[] value
         ) {
             if (value != null) {
                 final String message = BluetoothUtility.byteArrayToString(value);
-            	runOnUiThread(new Runnable() {
-					@Override
-					public void run() {
-						mTvServer.setText(message);
-					}
-				});
-            	mGattServer.sendResponse(device, requestId, BluetoothGatt.GATT_SUCCESS, offset, value);
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        mTvServer.setText(message);
+                    }
+                });
+                mGattServer.sendResponse(device, requestId, BluetoothGatt.GATT_SUCCESS, offset, value);
                 Log.d(BluetoothUtility.TAG, "data written: " + BluetoothUtility.byteArrayToString(value));
             } else {
                 Log.e(BluetoothUtility.TAG, "data is null");

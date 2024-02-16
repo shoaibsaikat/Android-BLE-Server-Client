@@ -4,10 +4,10 @@ import android.annotation.SuppressLint;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothManager;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -23,6 +23,11 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+
+		requestWindowFeature(Window.FEATURE_NO_TITLE);
+		if (getSupportActionBar() != null)
+			getSupportActionBar().hide();
+
 		setContentView(R.layout.activity_main);
 
 		mBtnServer = (Button) findViewById(R.id.buttonServer);
