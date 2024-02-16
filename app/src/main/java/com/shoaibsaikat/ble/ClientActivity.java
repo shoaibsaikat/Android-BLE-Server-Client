@@ -32,16 +32,15 @@ import java.util.UUID;
 
 
 public class ClientActivity extends AppCompatActivity {
-    private boolean isScanning;
+    private boolean mIsScanning;
     
-    private Button btnScan;
-    private Button btnStop;
-    private Button btnConnect;
-    private EditText etInput;
-    private TextView tvClient;
-    private Spinner spnCentralList;
-    
-    private BluetoothManager mBluetoothManager;
+    private Button mBtnScan;
+    private Button mBtnStop;
+    private Button mBtnConnect;
+    private EditText mEtInput;
+    private TextView mTvClient;
+    private Spinner mSpnCentralList;
+
     private BluetoothAdapter mBluetoothAdapter;
     private BluetoothLeScanner mBluetoothLeScanner;
 
@@ -54,33 +53,33 @@ public class ClientActivity extends AppCompatActivity {
     private BluetoothGatt mBtGatt = null;
     private BluetoothGattService mGattService = null;
     BluetoothGattCharacteristic mGattCharacteristic = null;
-    
+
     private int mConnectionState = BluetoothProfile.STATE_DISCONNECTED;
-    
+
 	@Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_client);
         
-        isScanning = false;
-        
-        mBluetoothManager = (BluetoothManager) getApplicationContext().getSystemService(Context.BLUETOOTH_SERVICE);
+        mIsScanning = false;
+
+        BluetoothManager mBluetoothManager = (BluetoothManager) getApplicationContext().getSystemService(Context.BLUETOOTH_SERVICE);
         mBluetoothAdapter = mBluetoothManager.getAdapter();
         mBluetoothLeScanner = mBluetoothAdapter.getBluetoothLeScanner();
 
-        btnScan = findViewById(R.id.buttonScan);
-        btnStop = findViewById(R.id.buttonStopScan);
-        btnConnect = findViewById(R.id.buttonConnect);
-        spnCentralList = findViewById(R.id.spinnerCentralList);
-        etInput = findViewById(R.id.editTextInputClient);
-        tvClient = findViewById(R.id.textViewClient);
+        mBtnScan = findViewById(R.id.buttonScan);
+        mBtnStop = findViewById(R.id.buttonStopScan);
+        mBtnConnect = findViewById(R.id.buttonConnect);
+        mSpnCentralList = findViewById(R.id.spinnerCentralList);
+        mEtInput = findViewById(R.id.editTextInputClient);
+        mTvClient = findViewById(R.id.textViewClient);
 
-        btnConnect.setEnabled(false);
+        mBtnConnect.setEnabled(false);
         
         mDeviceNameList = new ArrayList<String>();
         centralAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, mDeviceNameList);
         centralAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spnCentralList.setAdapter(centralAdapter);
+        mSpnCentralList.setAdapter(centralAdapter);
         mDeviceList = new ArrayList<BluetoothDevice>();
 
         mHandler = new Handler();
@@ -100,7 +99,7 @@ public class ClientActivity extends AppCompatActivity {
     public void handleScanStart(View view) {
         mDeviceNameList.clear();
         mDeviceList.clear();
-        btnConnect.setEnabled(false);
+        mBtnConnect.setEnabled(false);
         
         runOnUiThread(new Runnable() {
             @Override
@@ -117,7 +116,7 @@ public class ClientActivity extends AppCompatActivity {
     }
     
     public void handleConnect(View view) {
-    	int choice = spnCentralList.getSelectedItemPosition();
+    	int choice = mSpnCentralList.getSelectedItemPosition();
     	
     	Log.d(BluetoothUtility.TAG, "chosen: " + choice);
     	Log.d(BluetoothUtility.TAG, "devices size: " + mDeviceList.size());
@@ -133,7 +132,7 @@ public class ClientActivity extends AppCompatActivity {
     
     public void handleSend(View view) {
         if (mBtGatt != null && mGattCharacteristic != null) {
-			mGattCharacteristic.setValue(BluetoothUtility.stringToByte(etInput.getText().toString()));
+			mGattCharacteristic.setValue(BluetoothUtility.stringToByte(mEtInput.getText().toString()));
 			if (mBtGatt.writeCharacteristic(mGattCharacteristic))
                 Log.d(BluetoothUtility.TAG, "Data sent");
 			else
@@ -152,10 +151,10 @@ public class ClientActivity extends AppCompatActivity {
     }
 
 	public void startBleScan() {
-        if (isScanning)
+        if (mIsScanning)
             return;
         enableBluetooth();
-        isScanning = true;
+        mIsScanning = true;
         
         // Stops scanning after a pre-defined scan period.
 		mHandler.postDelayed(new Runnable() {
@@ -165,19 +164,19 @@ public class ClientActivity extends AppCompatActivity {
 		}, BluetoothUtility.SCAN_PERIOD);
 		
         mBluetoothLeScanner.startScan(mBleScanCallback);
-        btnScan.setEnabled(false);
-        btnStop.setEnabled(true);
+        mBtnScan.setEnabled(false);
+        mBtnStop.setEnabled(true);
     }
 
 	public void stopBleScan() {
-        if (!isScanning)
+        if (!mIsScanning)
             return;
-        isScanning = false;
+        mIsScanning = false;
         
         mBluetoothLeScanner.stopScan(mBleScanCallback);
         
-        btnScan.setEnabled(true);
-        btnStop.setEnabled(false);
+        mBtnScan.setEnabled(true);
+        mBtnStop.setEnabled(false);
         Log.d(BluetoothUtility.TAG, "Scanning has been stopped");
     }
 
@@ -202,13 +201,13 @@ public class ClientActivity extends AppCompatActivity {
                     centralAdapter.notifyDataSetChanged();
                 }
             });
-            btnConnect.setEnabled(true);
+            mBtnConnect.setEnabled(true);
         }
     };
     
     private final BluetoothGattCallback mGattCallback = new BluetoothGattCallback() {
         @Override
-        public void onConnectionStateChange(BluetoothGatt gatt, int status, int newState) {           
+        public void onConnectionStateChange(BluetoothGatt gatt, int status, int newState) {
             if (newState == BluetoothProfile.STATE_CONNECTED) {
                 mConnectionState = BluetoothProfile.STATE_CONNECTED;
                 Log.i(BluetoothUtility.TAG, "Connected to GATT server.");
@@ -217,7 +216,7 @@ public class ClientActivity extends AppCompatActivity {
                     @Override
                     public void run() {
                         Toast.makeText(ClientActivity.this, "Connected", Toast.LENGTH_SHORT).show();
-                        btnConnect.setEnabled(false);
+                        mBtnConnect.setEnabled(false);
                     }
                 });
                 
@@ -241,7 +240,7 @@ public class ClientActivity extends AppCompatActivity {
                     @Override
                     public void run() {
                         Toast.makeText(ClientActivity.this, "Disconnected", Toast.LENGTH_SHORT).show();
-                        btnConnect.setEnabled(true);
+                        mBtnConnect.setEnabled(true);
                     }
                 });
                 Log.i(BluetoothUtility.TAG, "Disconnected from GATT server.");
@@ -276,7 +275,7 @@ public class ClientActivity extends AppCompatActivity {
                                 @Override
                                 public void run() {
                                     Toast.makeText(ClientActivity.this, "getCharacteristic is null", Toast.LENGTH_SHORT).show();
-                                    btnConnect.setEnabled(false);
+                                    mBtnConnect.setEnabled(false);
                                 }
                             });
                             Log.e(BluetoothUtility.TAG, "getCharacteristic == null");
@@ -287,7 +286,7 @@ public class ClientActivity extends AppCompatActivity {
                             @Override
                             public void run() {
                                 Toast.makeText(ClientActivity.this, "BluetoothGattService is null", Toast.LENGTH_SHORT).show();
-                                btnConnect.setEnabled(false);
+                                mBtnConnect.setEnabled(false);
                             }
                         });
                         Log.e(BluetoothUtility.TAG, "gattServ == null");
@@ -318,7 +317,7 @@ public class ClientActivity extends AppCompatActivity {
 				runOnUiThread(new Runnable() {
 					@Override
 					public void run() {
-						tvClient.setText(tmp);
+						mTvClient.setText(tmp);
 					}
 				});
 			} else {

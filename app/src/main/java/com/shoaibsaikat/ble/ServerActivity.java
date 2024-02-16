@@ -29,10 +29,10 @@ import java.util.ArrayList;
 import java.util.UUID;
 
 public class ServerActivity extends AppCompatActivity {
-    private Button btnStopAdv;
-    private Button btnAdv;
-    private EditText etInput;
-    private TextView tvServer;
+    private Button mBtnStopAdv;
+    private Button mBtnAdv;
+    private EditText mEtInput;
+    private TextView mTvServer;
     
     private BluetoothGattServer mGattServer;
     private BluetoothManager mBluetoothManager;
@@ -40,8 +40,8 @@ public class ServerActivity extends AppCompatActivity {
     private BluetoothLeAdvertiser mBluetoothLeAdvertiser;
     private BluetoothDevice mConnectedDevice;
     
-    private boolean isAdvertising;
-    private boolean isDeviceSet = false;
+    private boolean mIsAdvertising = false;
+    private boolean mIsDeviceSet = false;
     
     private ArrayList<BluetoothGattService> mAdvertisingServices;
     private ArrayList<ParcelUuid> mServiceUuids;
@@ -51,30 +51,28 @@ public class ServerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_server);
         
-        isAdvertising = false;
-        
         mBluetoothManager = (BluetoothManager) getApplicationContext().getSystemService(Context.BLUETOOTH_SERVICE);
         mBluetoothAdapter = mBluetoothManager.getAdapter();
         mBluetoothLeAdvertiser = mBluetoothAdapter.getBluetoothLeAdvertiser();
-        mAdvertisingServices = new ArrayList();
-        mServiceUuids = new ArrayList();
+        mAdvertisingServices = new ArrayList<>();
+        mServiceUuids = new ArrayList<>();
 
-        btnAdv = findViewById(R.id.buttonAdvStart);
-        btnStopAdv = findViewById(R.id.buttonAdvStop);
-        tvServer = findViewById(R.id.textViewServer);
-        etInput = findViewById(R.id.editTextInputServer);
+        mBtnAdv = findViewById(R.id.buttonAdvStart);
+        mBtnStopAdv = findViewById(R.id.buttonAdvStop);
+        mTvServer = findViewById(R.id.textViewServer);
+        mEtInput = findViewById(R.id.editTextInputServer);
 
         //adding service and characteristics
-        BluetoothGattService firstService = new BluetoothGattService(UUID.fromString(BluetoothUtility.SERVICE_UUID_1), BluetoothGattService.SERVICE_TYPE_PRIMARY);
-        BluetoothGattCharacteristic firstServiceChar = new BluetoothGattCharacteristic(
+        BluetoothGattService gattService = new BluetoothGattService(UUID.fromString(BluetoothUtility.SERVICE_UUID_1), BluetoothGattService.SERVICE_TYPE_PRIMARY);
+        BluetoothGattCharacteristic gattServiceChar = new BluetoothGattCharacteristic(
                 UUID.fromString(BluetoothUtility.CHAR_UUID_1),
                 BluetoothGattCharacteristic.PROPERTY_READ | BluetoothGattCharacteristic.PROPERTY_WRITE,
                 BluetoothGattCharacteristic.PERMISSION_READ | BluetoothGattCharacteristic.PERMISSION_WRITE
         );
-        firstService.addCharacteristic(firstServiceChar);
+        gattService.addCharacteristic(gattServiceChar);
         
-        mAdvertisingServices.add(firstService);
-        mServiceUuids.add(new ParcelUuid(firstService.getUuid()));
+        mAdvertisingServices.add(gattService);
+        mServiceUuids.add(new ParcelUuid(gattService.getUuid()));
     }
 
     @Override
@@ -93,18 +91,18 @@ public class ServerActivity extends AppCompatActivity {
 
     public void handleStartClick(View view) {
         startAdvertise();
-        btnAdv.setEnabled(false);
-        btnStopAdv.setEnabled(true);
+        mBtnAdv.setEnabled(false);
+        mBtnStopAdv.setEnabled(true);
     }
 
     public void handleStopClick(View view) {
         stopAdvertise();
-        btnAdv.setEnabled(true);
-        btnStopAdv.setEnabled(false);
+        mBtnAdv.setEnabled(true);
+        mBtnStopAdv.setEnabled(false);
     }
     
     public void handleSendClick(View view) {
-    	if (isDeviceSet && writeCharacteristicToGatt(etInput.getText().toString())) {
+    	if (mIsDeviceSet && writeCharacteristicToGatt(mEtInput.getText().toString())) {
     		Toast.makeText(ServerActivity.this, "Data written", Toast.LENGTH_SHORT).show();
             Log.d(BluetoothUtility.TAG, "Data written from server");
     	} else {
@@ -135,7 +133,7 @@ public class ServerActivity extends AppCompatActivity {
     
     //Public method to begin advertising services
     public void startAdvertise() {
-        if (isAdvertising)
+        if (mIsAdvertising)
             return;
         enableBluetooth();
         startGattServer();
@@ -152,12 +150,12 @@ public class ServerActivity extends AppCompatActivity {
         settingsBuilder.setTxPowerLevel(AdvertiseSettings.ADVERTISE_TX_POWER_HIGH);
 
         mBluetoothLeAdvertiser.startAdvertising(settingsBuilder.build(), dataBuilder.build(), advertiseCallback);
-        isAdvertising = true;
+        mIsAdvertising = true;
     }
 
     //Stop ble advertising and clean up
     public void stopAdvertise() {
-        if (!isAdvertising)
+        if (!mIsAdvertising)
             return;
         mBluetoothLeAdvertiser.stopAdvertising(advertiseCallback);
         if (mGattServer != null) {
@@ -166,7 +164,7 @@ public class ServerActivity extends AppCompatActivity {
         }
         if (mAdvertisingServices != null)
             mAdvertisingServices.clear();
-        isAdvertising = false;
+        mIsAdvertising = false;
     }
     
     public boolean writeCharacteristicToGatt(String data) {
@@ -200,7 +198,7 @@ public class ServerActivity extends AppCompatActivity {
         public void onConnectionStateChange(BluetoothDevice device, int status, int newState) {
             Log.d(BluetoothUtility.TAG, "onConnectionStateChange status=" + status + "->" + newState);
             mConnectedDevice = device;
-            isDeviceSet = true;
+            mIsDeviceSet = true;
         }
 
         @Override
@@ -240,7 +238,7 @@ public class ServerActivity extends AppCompatActivity {
             	runOnUiThread(new Runnable() {
 					@Override
 					public void run() {
-						tvServer.setText(message);
+						mTvServer.setText(message);
 					}
 				});
             	

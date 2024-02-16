@@ -1,6 +1,7 @@
 package com.shoaibsaikat.ble;
 
 import java.io.UnsupportedEncodingException;
+import java.nio.charset.StandardCharsets;
 
 import android.util.Log;
 
@@ -14,7 +15,7 @@ public class BluetoothUtility {
 
 	public static String byteArrayToString(byte[] byteArray) {
 		try {
-			return new String(byteArray, "UTF-8");
+			return new String(byteArray, StandardCharsets.UTF_8);
 		} catch (Exception e) {
 			Log.e(TAG,"byteArrayToString failed: " + e.getMessage());
 			e.printStackTrace();
@@ -25,9 +26,7 @@ public class BluetoothUtility {
 	public static byte[] stringToByte(String value) {
 		try {
 			if (value != null && value.length() > 0)
-				return value.getBytes("UTF-8");
-		} catch (UnsupportedEncodingException ex) {
-			Log.e(TAG,"stringToByte UnsupportedEncodingException.");
+				return value.getBytes(StandardCharsets.UTF_8);
 		} catch (Exception e) {
 			Log.e(TAG,"stringToByte exception: " + e.getMessage());
 		}
