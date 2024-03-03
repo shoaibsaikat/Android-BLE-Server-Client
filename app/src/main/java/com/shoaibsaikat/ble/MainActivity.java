@@ -16,7 +16,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 @SuppressLint("MissingPermission")
 public class MainActivity extends AppCompatActivity implements OnClickListener {
-
+  
 	private static final int REQUEST_ENABLE_BT = 0;
 	Button mBtnServer, mBtnClient;
 
