@@ -20,14 +20,13 @@ public class BluetoothUtility {
 			return new String(byteArray, StandardCharsets.UTF_8);
 		} catch (Exception e) {
 			Log.e(TAG,"byteArrayToString failed: " + e.getMessage());
-			e.printStackTrace();
 		}
 		return "";
 	}
 	
 	public static byte[] stringToByte(String value) {
 		try {
-			if (value != null && value.length() > 0)
+			if (value != null && !value.isEmpty())
 				return value.getBytes(StandardCharsets.UTF_8);
 		} catch (Exception e) {
 			Log.e(TAG,"stringToByte exception: " + e.getMessage());

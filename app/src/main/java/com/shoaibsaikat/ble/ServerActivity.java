@@ -87,9 +87,9 @@ public class ServerActivity extends AppCompatActivity {
     		mAdvertisingServices = null;
     	}
         if (mServiceUuids != null) {
-    		mServiceUuids.clear();
-    		mServiceUuids = null;
-    	}
+            mServiceUuids.clear();
+            mServiceUuids = null;
+        }
     	stopAdvertise();
         super.onDestroy();
     }
@@ -218,12 +218,7 @@ public class ServerActivity extends AppCompatActivity {
         ) {
             if (value != null) {
                 final String message = BluetoothUtility.byteArrayToString(value);
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        mTvServer.setText(message);
-                    }
-                });
+                runOnUiThread(() -> mTvServer.setText(message));
                 mGattServer.sendResponse(device, requestId, BluetoothGatt.GATT_SUCCESS, offset, value);
                 Log.d(BluetoothUtility.TAG, "data written: " + BluetoothUtility.byteArrayToString(value));
             } else {
